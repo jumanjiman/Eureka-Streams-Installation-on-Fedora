@@ -1,8 +1,0 @@
-=== Asciidoc
-
-Asciidoc website::
-	http://www.methods.co.nz/asciidoc/index.html
-
-Asciidoc cheat sheet::
-	http://powerman.name/doc/asciidoc
-
