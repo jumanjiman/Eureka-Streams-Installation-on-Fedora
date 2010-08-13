@@ -1,0 +1,14 @@
+==== RPM-building
+
+Tutorial, reference, and links to more resources::
+	https://fedoraproject.org/wiki/How_to_create_an_RPM_package
+
+Maximum RPM::
+	http://rpm5.org/docs/max-rpm.pdf
+
+RPM Guide::
+	http://rpm5.org/docs/rpm-guide.pdf
+
+Spec file tags::
+	http://rpm5.org/docs/api/specfile.html
+

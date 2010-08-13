@@ -1,0 +1,28 @@
+#!/bin/bash
+
+unnecessary="
+avahi-daemon
+pcscd
+bluetooth
+hidd
+iptables
+cpuspeed
+"
+
+prog=$(basename $0)
+def_run=$(grep '^id.*initdefault' /etc/inittab | cut -d: -f2)
+
+for svc in $unnecessary; do
+  chkconfig --list $svc | grep -q "$def_run:on" && continue
+  logger -t $prog "disabling $svc"
+  service $svc stop
+  chkconfig $svc off
+done
+
+file=/etc/sysconfig/network
+grep -q NOZEROCONF $file || \
+(
+  logger -t $prog "disabling zeroconf"
+  echo "NOZEROCONF=disabled" >> $file
+)
+

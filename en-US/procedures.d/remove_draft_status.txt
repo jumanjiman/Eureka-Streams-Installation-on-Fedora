@@ -1,0 +1,41 @@
+
+=== Change the `DRAFT` status of your document
+
+The default template included with this package
+sets the status of your EJ to `DRAFT`. Use this
+procedure to remove `DRAFT` status when the document
+is finalized.
+
+.Remove the `DRAFT` status
+. Edit `en-US/<Book_Title>.xml`
+.. Find the `<book status="draft">` element
+.. Change it to `<book>`
+.. Save your changes
+. Run `make all`
+
+.Add the `DRAFT` status
+. Edit `en-US/<Book_Title>.xml`
+.. Find the `<book>` element
+.. Change it to `<book status="draft">`
+.. Save your changes
+. Run `make all`
+
+
+=== Change the `Confidential` status of your document
+
+The default template included with this package
+sets the status of your EJ to `Red Hat Confidential: Internal Use Only`. 
+Use this procedure to remove `Confidential` status before delivering
+the document to your customer.
+
+.Remove `Confidential` status
+. Edit `publican.cfg` in the same directory as the `Makefile`
+.. Change `confidential: 1` to `confidential: 0`
+.. Save your changes
+. Run `make all`
+
+.Add `Confidential` status
+. Edit `publican.cfg` in the same directory as the `Makefile`
+.. Change `confidential: 0` to `confidential: 1`
+.. Save your changes
+. Run `make all`

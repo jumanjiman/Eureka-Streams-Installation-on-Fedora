@@ -1,0 +1,81 @@
+
+=== Shell access to the RHN Satellite API
+
+The `spacecmd` package provides a command-line shell interface
+to RHN Satellite Server version 5.3 and later.
+
+==== Install `spacecmd`
+
+Visit http://people.redhat.com/aparsons/ to download this utility
+in RPM format, then install normally.
+
+==== Use `spacecmd` as a shell
+
+. Open a Bash session
+. Connect to your satellite server via `spacecmd`
++
+----
+$ spacecmd -u satadmin -s mysat.fqdn
+Password: ******
+
+Welcome to spacecmd, a command line interface to Spacewalk.
+
+For a full set of commands, type 'help' on the prompt.
+For help for a specific command try 'help <cmd>'.
+
+spacecmd> help
+
+Documented commands (type help <topic>):
+========================================
+activationkey_details      login                         system_rename        
+activationkey_list         logout                        system_runscript     
+activationkey_listsystems  package_details               system_search        
+clear                      package_search                system_setbasechannel
+clear_caches               schedule_cancel               system_upgradepackage
+configchannel_details      schedule_getoutput            whoami               
+configchannel_filedetails  schedule_listarchived         whoamitalkingto      
+configchannel_list         schedule_listcompleted      
+configchannel_listfiles    schedule_listfailed         
+configchannel_listsystems  schedule_listpending        
+cryptokey_details          schedule_summary            
+cryptokey_list             softwarechannel_details     
+errata_details             softwarechannel_list        
+errata_search              softwarechannel_listerrata  
+get_apiversion             softwarechannel_listpackages
+get_certificateexpiration  softwarechannel_listsystems 
+get_entitlements           ssm_add                     
+get_serverversion          ssm_clear                   
+group_addsystems           ssm_list                    
+group_create               ssm_rm                      
+group_delete               system_addchildchannel      
+group_details              system_applyerrata          
+group_list                 system_delete               
+group_listsystems          system_details              
+group_removesystems        system_installpackage       
+help                       system_list                 
+history                    system_listerrata           
+kickstart_details          system_listhardware         
+kickstart_getfile          system_listinstalledpackages
+kickstart_list             system_listupgrades         
+kickstart_listsnippets     system_removechildchannel   
+kickstart_snippetdetails   system_removepackage        
+
+Miscellaneous help topics:
+==========================
+ssm
+
+spacecmd> 
+----
+
+==== Use `spacecmd` in scripts
+
+This example shows how to use `spacecmd` in a Bash script.
+
+----
+for server in $(spacecmd -u admin -s exta-inf1 system_list | grep '^pc-' | sort -u)
+do  
+  # really glad that spacecmd caches login creds
+  echo -n "$server : " 
+  spacecmd -u admin -s exta-inf1 system_listhardware "$server" 2> /dev/null | awk '/RAM/{print $2}'
+done
+----

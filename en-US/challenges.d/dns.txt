@@ -1,0 +1,20 @@
+==== DNS Architecture
+
+Any network infrastructure based on TCP/IP protocols should
+have a well-designed DNS. This document provides work-arounds
+for an infrastructure in which DNS is less than optimal.
+
+.Causes
+* Lack of heirarchical delegation to subdomains
+* Missing `A` records
+* Inconsistent `cname` records
+* Improper forwarders
+
+.Effects
+* Hosts cannot reach each other
+* Kerberos-based authentication fails
+
+.Workarounds
+* Pre-populating the `/etc/hosts` file provides unique names for each record
+* A naming standard has been developed for adding entries to the `/etc/hosts` file 
+* Use RHN Satellite Server to push out the `/etc/hosts` file

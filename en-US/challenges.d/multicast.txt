@@ -1,0 +1,5 @@
+==== Multicast traffic
+
+Red Hat Cluster Suite requires multicast traffic on intervening switches.
+
+

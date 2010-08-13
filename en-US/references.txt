@@ -1,0 +1,28 @@
+
+include::variables.txt[]
+
+Appendix: Reference Material
+----------------------------
+
+////
+- [[[csgfs]]] Cluster Suite Documentation. http://wiki.libvirt.org/page/Networking
+- [[[rhn]]] RHN Satellite Server. https://www.redhat.com/docs/manuals/satellite/
+- [[[channels]]] How to update software channels for Satellite Server. 
+  https://fedorahosted.org/spacewalk/browser/scripts/channel-to-update-level/
+////
+
+This section of the engagement journal provides reference material pertaining
+to this engagement.
+
+include::references.d/redhat.txt[]
+
+include::references.d/asciidoc.txt[]
+
+//include::references.d/bash.txt[]
+//include::references.d/hp.txt[]
+//include::references.d/rpm.txt[]
+//include::references.d/tuning.txt[]
+//include::references.d/krb5.txt[]
+
+// vim: set syntax=asciidoc:
+// vim: set ts=4:
