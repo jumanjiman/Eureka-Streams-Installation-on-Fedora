@@ -1,0 +1,18 @@
+
+Your document has been set up as a git repo.
+Next Steps:
+----------------------------------------------------
+1. View initial PDF at 
+   /home/pmorgan/ej/Eureka_Streams/Fedora_Installation/en-US/Eureka_Streams--Fedora_Installation-en-US.pdf
+
+2. Modify abstract in 
+   /home/pmorgan/ej/Eureka_Streams/Fedora_Installation/en-US/*_Info.xml
+
+3. Modify 
+   /home/pmorgan/ej/Eureka_Streams/Fedora_Installation/en-US/*.txt
+
+4. Run "make -C /home/pmorgan/ej/Eureka_Streams/Fedora_Installation"
+
+5. Each successful make causes a commit to git,
+   but you may want to commit interim changes
+
