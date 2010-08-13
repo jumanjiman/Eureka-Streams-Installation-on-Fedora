@@ -1,0 +1,5 @@
+== How to install Eureka Streams on Fedora
+
+This document is merely a stub text at this point.
+Hopefully I'll have plenty of time to work on it
+in the coming days.
