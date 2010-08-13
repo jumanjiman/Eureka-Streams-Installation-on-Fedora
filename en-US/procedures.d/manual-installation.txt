@@ -1,5 +1,5 @@
 
-=== Installation
+=== Manual Installation
 
 This installation is based on the instructions at
 http://www.eurekastreams.org/build-and-run/[].
