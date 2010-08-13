@@ -135,6 +135,16 @@ Source for this document
 </simpara>
 </listitem>
 </varlistentry>
+<varlistentry>
+<term>
+PDF version of this document
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://github.com/jumanjiman/Eureka-Streams-Installation-on-Fedora/downloads">http://github.com/jumanjiman/Eureka-Streams-Installation-on-Fedora/downloads</ulink>
+</simpara>
+</listitem>
+</varlistentry>
 </variablelist>
 </listitem>
 </itemizedlist>
