@@ -1,0 +1,42 @@
+
+=== Installation
+
+This installation is based on the instructions at
+http://www.eurekastreams.org/build-and-run/[].
+
+==== Install prerequisite packages
+
+These steps install numerous dependencies.
+
+NOTE: These steps use `sudo` to run commands as `root`.
+You could also run `sudo -i` to become `root`.
+
+. Install `maven2`
++
+----
+sudo yum -y install maven2 maven2-manual
+----
+
+. Install `memcached`
++
+----
+sudo yum -y install memcached
+sudo /sbin/service memcached start
+sudo /sbin/chkconfig memcached on
+----
+
+. Install Git
++
+----
+sudo yum -y install git-all
+----
+
+. Install Postgres client and server
++
+----
+sudo yum -y install postgresql postgresql-server
+----
+
+. Install Java from http://www.java.com/en[]
+
+
