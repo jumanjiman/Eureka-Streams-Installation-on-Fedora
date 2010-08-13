@@ -1,4 +1,0 @@
-
-.Microsoft
-* Windows Server 2003 r2
-* Windows Server 2008
