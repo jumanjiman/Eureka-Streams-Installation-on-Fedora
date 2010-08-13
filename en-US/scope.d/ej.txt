@@ -1,0 +1,15 @@
+
+==== Create professional documents based on templates
+
+This package provides the `ej` command for creating
+documents. The `ej` command is short for *engagement journal* 
+and does several things:
+
+* Creates a working directory containing a template engagement journal
+* Enables the author to work with plain-text files
+* Provides a `Makefile`, which... 
+  . converts plain-text, lightweight markup into `docbook`
+  . converts `docbook` into well-formatted output, such as PDF
+
+NOTE: The `ej` command provides the above features _now_.
+

@@ -1,0 +1,19 @@
+include::variables.txt[]
+
+
+== Runbook Procedures
+
+This chapter provides high-level, task-oriented procedures
+related to this project. They are intended to act
+as a starting point for operational procedures in runbooks.
+
+include::procedures.d/install_ej.txt[]
+
+include::procedures.d/get_started_with_ej.txt[]
+
+include::procedures.d/remove_draft_status.txt[]
+
+include::procedures.d/rhn_spacecmd.txt[]
+
+include::procedures.d/putty.txt[]
+

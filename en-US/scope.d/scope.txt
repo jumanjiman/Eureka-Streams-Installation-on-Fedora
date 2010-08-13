@@ -1,0 +1,74 @@
+
+=== Scope
+
+==== Focus on content, _not_ formatting
+
+This documentation system leverages open-source tools
+to create professional documents without worrying about the format. 
+It provides several advantages:
+
+* Rapid document creation
+  - Include files directly
+  - Manage revisions
+  - Publish content automatically
+* Automatic formatting based on stylesheets
+  - Consistent look and feel
+  - Format is based on semantic content
+* Automatic creation of
+  - table of contents
+  - table of figures
+  - index (based on tagged content)
+
+
+==== Create professional documents based on templates
+
+This package provides the `ej` command for creating
+documents. The `ej` command is short for *engagement journal* 
+and does several things:
+
+* Creates a working directory containing a template engagement journal
+* Enables the author to work with plain-text files
+* Provides a `Makefile`, which... 
+  . converts plain-text, lightweight markup into `docbook`
+  . converts `docbook` into well-formatted output, such as PDF
+
+NOTE: The `ej` command provides the above features _now_.
+
+
+==== Manage a central document repository
+
+The `ejadm` command administers a collection of documents. In the future,
+the `ejadm` command will provide a front-end to version control 
+and publishing, enabling users to:
+
+* List documents by author, client name, or document title
+* Search documents
+* Publish documents
+* Manage revisions
+* Check-out documents
+
+IMPORTANT: The `ejadm` command does not _yet_ provide
+the features listed above.
+
+==== Another scope element
+
+Use asciidoc in your source to denote things that 
+should be *bold* or _italicized_.
+
+.List titles are optional and begin with a dot (no space)
+* First bullet point in no implied order of progression
+* Second bullet point
+- Sub-bullet
+- Another sub-bullet
+* Third bullet point
+* Denote commands, such as the `cat /proc/cpuinfo` command, in backticks
+
+.List titles are bold, and _this portion is also italicized_
+. Numbered lists are good for procedures
+. Pretty easy, right?
+.. A sub-step
+.. Second sub-step
+. Third major step
+
+
+

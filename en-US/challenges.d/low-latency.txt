@@ -1,0 +1,13 @@
+
+==== Low-latency Environment
+
+This solution does not require any background
+process (also known as a _daemon_) to run. This avoids any impact on 
+low-latency requirements for RHEL.
+
+////
+This paragraph won't appear in the final document because
+the leading four slashes before and after any block
+of text are comments in asciidoc.
+////
+

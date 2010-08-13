@@ -1,0 +1,41 @@
+==== Bash Scripting
+
+{client} admins should develop Bash scripting skills. 
+I spent some time with the Linux team to cover scripting
+and command-line navigation.  Using scripts to
+automate management tasks provides useful benefits:
+
+.Benefits of Bash scripting
+* Understand how system scripts operate
+* Resolve run-time issues with servers
+* Ability to test scripts before running in production
+* Avoids risk of entering commands by hand on production servers
+* Reproduce tasks efficiently
+* Over time, build a library of common scripts
+
+.Free, self-study resources
+
+The following two resources are freely available online
+and provide a great reference for individuals who prefer
+to self-study.
+
+Introductory tutorial on Bash scripting::
+	http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html
+
+Advanced Bash scripting guide (PDF)::
+	http://freshmeat.net/projects/advancedbashscriptingguide
+
+.Instructor-led training
+For instructor-led training with labs, Red Hat offers a course
+that includes Bash scripting and Linux command-line skills.
+RH033 _Red Hat Linux Essentials for Windows 
+Professionals and other Operating System Users_ is available in 
+a traditional corporate classroom environment or as a virtual
+Internet-based class. 
+
+Red Hat classroom course RH033::
+	https://www.redhat.com/courses/rh033_red_hat_linux_essentials
+
+Red Hat virtual course  RH033VT::
+	https://www.redhat.com/elearning/rh033vt_red_hat_linux_essentials/
+

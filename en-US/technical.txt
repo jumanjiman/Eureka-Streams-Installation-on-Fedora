@@ -1,0 +1,549 @@
+
+== Technical Discussion
+
+This section provides technical details about the packaging and deployment
+of HP PSP components for ISE.
+
+=== PSP Software
+
+To download the PSP software:
+
+. Visit http://www.hp.com/servers/psp
+.. Follow the link for *Downloads*
+.. Choose RHEL 5 Server x86_64
+. The HP site delivers three parts
+.. Download Part 1 (XML file) as `psp.xml`
+.. Download Part 2 (tarball) with name intact
+.. Download Part 3 (MD5 checksum) and save as `md5sum.txt` in the _same_ directory as tarball
+. Verify integrity of the download
++
+----
+md5sum -c md5sum.txt
+----
++
+Expected output:
++
+----
+psp-8.31.rhel5.x86_64.en.tar.gz: OK
+----
++
+IMPORTANT: This is not a true integrity check since it
+lacks a digital signature, but it is the best we can do at the moment.
++
+. Extract the tarball to inspect its contents
+.. Extract the distribution tarball
++
+----
+[pmorgan@x200 hp-psp]$ tar xvzf psp-8.31.rhel5.x86_64.en.tar.gz 
+compaq/
+compaq/csp/
+compaq/csp/linux/
+compaq/csp/linux/cpqacuxe-8.30-5.0.noarch.rpm.tar.gz
+compaq/csp/linux/cpq_cciss-3.6.20-30.rhel5.x86_64.rpm.tar.gz
+compaq/csp/linux/e1000-8.0.16-1.src.rpm.tar.gz
+compaq/csp/linux/e1000e-1.0.15-1.src.rpm.tar.gz
+compaq/csp/linux/fibreutils-2.5-4.x86_64.rpm.tar.gz
+compaq/csp/linux/hpacucli-8.30-5.0.noarch.rpm.tar.gz
+compaq/csp/linux/hpahcisr-1.2.1-9.rhel5.x86_64.rpm.tar.gz
+compaq/csp/linux/hpdiags-8.3.0-14.linux.x86_64.rpm.tar.gz
+compaq/csp/linux/hp-fc-enablement-1.1-9.noarch.rpm.tar.gz
+compaq/csp/linux/hp-health-8.3.1.2-2.rhel5.x86_64.rpm.tar.gz
+compaq/csp/linux/hp-ilo-8.3.0-118.rhel5.x86_64.rpm.tar.gz
+compaq/csp/linux/hp-lpfc-8.2.0.22-8.noarch.rpm.tar.gz
+compaq/csp/linux/hpmouse-1.1.2-33.noarch.rpm.tar.gz
+compaq/csp/linux/hponcfg-2.2.0-5.noarch.rpm.tar.gz
+compaq/csp/linux/hp-OpenIPMI-8.3.1-15.rhel5.x86_64.rpm.tar.gz
+compaq/csp/linux/hp_qla2x00src-8.02.23-1.noarch.rpm.tar.gz
+compaq/csp/linux/hp_qla2x00src-mezz-8.02.23-1.noarch.rpm.tar.gz
+compaq/csp/linux/hpsmh-3.0.2-77.x86_64.rpm.tar.gz
+compaq/csp/linux/hp-smh-templates-8.3.0.9-13.noarch.rpm.tar.gz
+compaq/csp/linux/hp-snmp-agents-8.3.0.27-24.rhel5.x86_64.rpm.tar.gz
+compaq/csp/linux/hpvca-2.2.1-3.linux.rpm.tar.gz
+compaq/csp/linux/mptlinux-4.00.13.07-1.rhel5.x86_64.rpm.tar.gz
+compaq/csp/linux/netxtreme2-5.0.17-1.src.rpm.tar.gz
+compaq/csp/linux/nx_nic-4.0.406-5.src.rpm.tar.gz
+compaq/csp/linux/qla4xxx-5.01.01.04-1.src.rpm.tar.gz
+compaq/csp/linux/tg3-3.99h-1.src.rpm.tar.gz
+compaq/csp/linux/hppldu-1.0.26-1.tar.gz
+compaq/csp/linux/hppldu-librpms-1.0.26-1.tar.gz
+compaq/csp/linux/install830.sh
+compaq/csp/linux/bp000666.xml
+compaq/csp/linux/hppldu_v831.rhel5.txt
+----
++
+.. Extract additional tarballs
++
+----
+find compaq/ -regex '.*tar.gz' -exec tar xvf {} \;
+----
++
+.. Some of the packages appear from the name to conflict, so check the packager for each:
++
+----
+{
+for rpm in $(ls *rpm); do 
+  echo " ========= $rpm ==========="
+  rpm -qip $rpm 
+done
+} 2> /dev/null | tee /tmp/pkg-descriptions | less
+----
++
+NOTE: See the relevant appendix for the complete `pkg-descriptions` file.
++
+WARNING: Some of the components are specific, _out-of-date_ versions of vendor packages;
+others, _uncertified_ replacements for certified drivers.
+
+Based on the above, the most interesting components _on initial review_ seem to be:
+
+* `cpqacuxe`: HP Array Configuration Utility 
++
+----
+Name        : cpqacuxe                     Relocations: (not relocatable)
+Version     : 8.30                              Vendor: Hewlett-Packard Company
+Release     : 5.0                           Build Date: Wed 08 Jul 2009 10:14:24 PM EDT
+Install Date: (not installed)               Build Host: Prowl.americas.hpqcorp.net
+Group       : Applications/System           Source RPM: cpqacuxe-8.30-5.0.src.rpm
+Size        : 12284428                         License: See cpqacuxe.license
+Signature   : (none)
+Packager    : Hewlett-Packard Company
+URL         : http://www.hp.com/linux
+Summary     : HP Array Configuration Utility
+Description :
+The HP Array Configuration Utility is the web-based disk array
+configuration program for Array Controllers.
+----
++
+* `hpacucli`: HP Command Line Array Configuration Utility 
++
+----
+Name        : hpacucli                     Relocations: (not relocatable)
+Version     : 8.30                              Vendor: Hewlett-Packard Company
+Release     : 5.0                           Build Date: Wed 08 Jul 2009 06:14:52 PM EDT
+Install Date: (not installed)               Build Host: Prowl.americas.hpqcorp.net
+Group       : Applications/System           Source RPM: hpacucli-8.30-5.0.src.rpm
+Size        : 15748051                         License: See hpacucli.license
+Signature   : (none)
+Packager    : Hewlett-Packard Company
+URL         : http://www.hp.com/linux
+Summary     : HP Command Line Array Configuration Utility
+Description :
+The HP Command Line Array Configuration Utility is the disk
+array configuration program for Array Controllers.
+----
++
+* `hpdiags`: hp Insight Diagnostics                      
++
+----
+Name        : hpdiags                      Relocations: (not relocatable)
+Version     : 8.3.0                             Vendor: (none)
+Release     : 14                            Build Date: Mon 10 Aug 2009 04:53:48 PM EDT
+Install Date: (not installed)               Build Host: linux-X64
+Group       : Applications/System           Source RPM: hpdiags-8.3.0-14.src.rpm
+Size        : 64303983                         License: commercial
+Signature   : (none)
+URL         : http://www.hp.com/linux
+Summary     : hp Insight Diagnostics
+Description :
+Identifies and exercises system components.
+----
++
+* `hp-health`: HP System Health Application and Command Line Utilities
++
+----
+Name        : hp-health                    Relocations: (not relocatable)
+Version     : 8.3.1.2                           Vendor: Hewlett-Packard Company
+Release     : 2                             Build Date: Thu 17 Sep 2009 03:21:17 PM EDT
+Install Date: (not installed)               Build Host: bld72.sdg.adapps.hp.com
+Group       : System Environment            Source RPM: hp-health-8.3.1.2-2.src.rpm
+Size        : 1506986                          License: 2008 Hewlett-Packard Development Company, L.P.
+Signature   : (none)
+Packager    : Hewlett-Packard Company
+URL         : http://www.hp.com/go/proliantlinux
+Summary     : HP System Health Application and Command Line Utilities
+Description :
+This package contains the System Health Monitor for all hp Proliant systems
+with ASM, ILO, & ILO2 embedded management asics.  Also contained are the
+command line utilities.
+----
++
+* `hp-ilo`: HP iLO Channel Interface Driver
++
+----
+Name        : hp-ilo                       Relocations: (not relocatable)
+Version     : 8.3.0                             Vendor: Hewlett-Packard Company
+Release     : 118.rhel5                     Build Date: Fri 26 Jun 2009 01:10:10 PM EDT
+Install Date: (not installed)               Build Host: rhel5ebuild
+Group       : System Environment/Kernel     Source RPM: hp-ilo-8.3.0-118.rhel5.src.rpm
+Size        : 1910611                          License: GNU Public License
+Signature   : (none)
+Packager    : Hewlett-Packard Company
+URL         : http://www.hp.com/go/proliantlinux
+Summary     : HP iLO Channel Interface Driver
+Description :
+This is the Hewlett-Packard integrated Lights-Out (iLO) system management
+controller channel interface device driver. This driver establishes a channel
+from the iLO 2 controller to an application such that the application can
+communicate directly to the iLO 2 controller.
+----
++
+* `hponcfg`: RILOE II/iLo online configuration utility
++
+----
+Name        : hponcfg                      Relocations: (not relocatable)
+Version     : 2.2.0                             Vendor: Hewlett-Packard Company
+Release     : 5                             Build Date: Tue 02 Jun 2009 11:35:56 PM EDT
+Install Date: (not installed)               Build Host: nt179237.ind.hp.com
+Group       : Utilities/System              Source RPM: hponcfg-2.2.0-5.src.rpm
+Size        : 200492                           License: Proprietary
+Signature   : (none)
+Packager    : Hewlett-Packard Company
+URL         : http://www.hp.com/go/ilo
+Summary     : hponcfg - An RILOE II/iLo online configuration utility
+Description :
+Hponcfg is a command line utility that can be used to configure iLO/RILOE II from with in the operating system without requiring a reboot of the server.
+----
++
+* `hpsmh`: HP System Management Homepage
++
+----
+Name        : hpsmh                        Relocations: (not relocatable)
+Version     : 3.0.2                             Vendor: Hewlett-Packard Company
+Release     : 77                            Build Date: Sat 20 Jun 2009 12:45:38 PM EDT
+Install Date: (not installed)               Build Host: linux
+Group       : Applications/System           Source RPM: hpsmh-3.0.2-77.src.rpm
+Size        : 43065778                         License: COPYRIGHT 2004-2009 Hewlett-Packard Development Company, L.P.  All rights reserved.
+Signature   : (none)
+Packager    : Hewlett-Packard Company
+URL         : http://www.hp.com/linux
+Summary     : HP System Management Homepage
+Description :
+The HP System Management Homepage v3.0.2.77
+----
++
+* `hp-snmp-agents`: Insight Management Agents(SNMP) for HP ProLiant Systems
++
+----
+Name        : hp-snmp-agents               Relocations: (not relocatable)
+Version     : 8.3.0.27                          Vendor: Hewlett-Packard Company
+Release     : 24                            Build Date: Tue 28 Jul 2009 12:52:56 PM EDT
+Install Date: (not installed)               Build Host: bld73.sdg.adapps.hp.com
+Group       : System Environment            Source RPM: hp-snmp-agents-8.3.0.27-24.src.rpm
+Size        : 5428602                          License: 2008 Hewlett-Packard Development Company, L.P.
+Signature   : (none)
+Packager    : Hewlett-Packard Company
+URL         : http://www.hp.com/go/proliantlinux
+Summary     : Insight Management Agents(SNMP) for HP ProLiant Systems
+Description :
+This package contains the SNMP server, storage, and nic agents for all
+hp Proliant systems with ASM, ILO, & ILO2 embedded management asics.
+----
+
+NOTE: The above components are binary-only and do not require building.
+
+These additional components appear interesting, but possibly invasive:
+
+* `fibreutils`: Complimentary programs and scripts for HP supported FC HBAs 
++
+----
+Name        : fibreutils                   Relocations: (not relocatable)
+Version     : 2.5                               Vendor: Hewlett-Packard Company
+Release     : 4                             Build Date: Tue 25 Nov 2008 11:42:36 AM EST
+Install Date: (not installed)               Build Host: deimos.mro.cpqcorp.net
+Group       : Applications/System           Source RPM: fibreutils-2.5-4.src.rpm
+Size        : 161229                           License: Proprietary
+Signature   : (none)
+Packager    : Hewlett-Packard Company
+URL         : http://www.hp.com
+Summary     : Provides complimentary programs and scripts for HP supported FC HBAs
+Description :
+This RPM has the following components:
+
+* Miscellaneous scripts and programs to compliment HP supported FC drivers:
+
+lssd
+lssg
+adapter_info
+probe-luns
+hp_rescan
+hp_system_info
+scsi_info
+sysfs_scandisk
+sysfs_scan_rport
+----
++
+NOTE: This component may provide redundant functionality with standard tools
+provided by `sg3_utils`, `lspci`, `dmidecode`, and other packages.
+
+
+=== Test installation of PSP components
+
+This section describes how to test the installation
+of interesting PSP components in an isolated environment
+with no impact on other environments.
+
+==== Goals of test installation
+
+The goals of a test installation procedure:
+
+* Build in an isolated environment
+* Determine whether components are buildable
+* Determine build dependencies
+* Determine run-time dependencies
+
+==== Procedure for test installation
+
+. Copy the binary PSP packages to `lunch18`
+. Attempt to install without yum
++
+----
+[pmorgan@lunch18 ~]$ sudo rpm -Uvh *rpm
+error: Failed dependencies:
+	libGLU.so.1()(64bit) is needed by hpdiags-8.3.0-14.x86_64
+	libXaw.so.7()(64bit) is needed by hpdiags-8.3.0-14.x86_64
+	libXmu.so.6()(64bit) is needed by hpdiags-8.3.0-14.x86_64
+	libstdc++.so.5 is needed by hpdiags-8.3.0-14.x86_64
+	libstdc++.so.5()(64bit) is needed by hpdiags-8.3.0-14.x86_64
+	libstdc++.so.5(CXXABI_1.2) is needed by hpdiags-8.3.0-14.x86_64
+	libstdc++.so.5(CXXABI_1.2)(64bit) is needed by hpdiags-8.3.0-14.x86_64
+	libstdc++.so.5(GLIBCPP_3.2) is needed by hpdiags-8.3.0-14.x86_64
+	libstdc++.so.5(GLIBCPP_3.2)(64bit) is needed by hpdiags-8.3.0-14.x86_64
+	libstdc++.so.5(GLIBCPP_3.2.2)(64bit) is needed by hpdiags-8.3.0-14.x86_64
+	libsensors.so.3()(64bit) is needed by hp-snmp-agents-8.3.0.27-24.x86_64
+	net-snmp is needed by hp-snmp-agents-8.3.0.27-24.x86_64
+----
++
+. Attempt to use `yum` to pick up dependencies
++
+----
+sudo yum localinstall --nogpgcheck *rpm
+----
++
+Actual output
++
+----
+ --snip--
+Installing for dependencies:
+ compat-libstdc++-33
+             i386   3.2.3-61         ise-rhel-5.3-x86_64                  232 k
+ compat-libstdc++-33
+             x86_64 3.2.3-61         ise-rhel-5.3-x86_64                  227 k
+ libXaw      x86_64 1.0.2-8.1        ise-rhel-5.3-x86_64                  328 k
+ libXmu      x86_64 1.0.2-5          ise-rhel-5.3-x86_64                   63 k
+ libXpm      x86_64 3.5.5-3          ise-rhel-5.3-x86_64                   44 k
+ lm_sensors  x86_64 2.10.7-4.el5     ise-rhel-5.3-x86_64                  528 k
+ mesa-libGLU x86_64 6.5.1-7.7.el5    ise-rhel-5.3-x86_64                  226 k
+ net-snmp    x86_64 1:5.3.2.2-5.el5  ise-rhel-5.3-x86_64                  716 k
+ --snip--
+Running Transaction
+  Installing     : lm_sensors                                      [ 1/17] 
+  Installing     : libXmu                                          [ 2/17] 
+  Installing     : net-snmp                                        [ 3/17] 
+  Installing     : libXpm                                          [ 4/17] 
+  Installing     : libXaw                                          [ 5/17] 
+  Installing     : mesa-libGLU                                     [ 6/17] 
+  Installing     : compat-libstdc++-33                             [ 7/17] 
+Detected Red Hat Enterprise Linux AS/ES/WS/SERVER 5
+Created hpsmh user and group...
+  Installing     : hpsmh                                           [ 8/17] 
+
+**********************************************************
+* System Management Homepage installed successfully with *
+* default configuration values.   To change the default  *
+* configuration values,  type the following command at   *
+* the root prompt:                                       *
+*                                                        *
+* /opt/hp/hpsmh/sbin/smhconfig                           *
+*                                                        *
+**********************************************************
+
+
+This RPM is not supported on RHEL 5.3 or greater
+
+error: %pre(fibreutils-2.5-4.x86_64) scriptlet failed, exit status 1
+error:   install: %pre scriptlet failed (2), skipping fibreutils-2.5-4
+  Installing     : hp-ilo                                          [10/17] 
+Please read the Licence Agreement for this software at
+
+         /opt/hp/hp-ilo/hp-ilo.license
+
+By not removing this package, you are accepting the terms
+of the included licenses.
+
+The man page, hp-ilo(4), describes how to enable and use
+the hp-ilo device driver.
+  Installing     : hponcfg                                         [11/17] 
+  Installing     : compat-libstdc++-33                             [12/17] 
+  Installing     : cpqacuxe                                        [13/17] 
+  Installing     : hpacucli                                        [14/17] 
+  Installing     : hp-health                                       [15/17] 
+Please read the Licence Agreement for this software at
+
+         /opt/hp/hp-health/hp-health.license
+
+By not removing this package, you are accepting the terms
+of the "HP Proliant Essentials Software End User License Agreement".
+ ==============================================================================
+ NOTE: In order to activate the software contained in this package, you must
+      type '/etc/init.d/hp-health start' as 'root' user.
+ ==============================================================================
+The hp-health RPM has installed successfully.
+  Installing     : hp-snmp-agents                                  [16/17] 
+Please read the Licence Agreement for this software at
+
+         /opt/hp/hp-snmp-agents/hp-snmp-agents.license
+
+By not removing this package, you are accepting the terms
+of the "HP Proliant Essentials Software End User License Agreement".
+Installing /opt/hp/hp-snmp-agents/nic/etc/HPcmanic.pp SELinux policy module
+ ==============================================================================
+ NOTE: In order to activate the software contained in this package, you must
+      type '/sbin/hpsnmpconfig' as 'root' user.
+      Once configuration is completed start the agents by typing
+      /etc/init.d/hp-snmp-agents start
+ ==============================================================================
+  Installing     : hpdiags                                         [17/17] 
+Stopping hpsmhd: [  OK  ]
+Starting hpsmhd: [  OK  ]
+
+Installed: cpqacuxe.i386 0:8.30-5.0 fibreutils.x86_64 0:2.5-4 hp-health.x86_64 0:8.3.1.2-2 hp-ilo.x86_64 0:8.3.0-118.rhel5 hp-snmp-agents.x86_64 0:8.3.0.27-24 hpacucli.i386 0:8.30-5.0 hpdiags.x86_64 0:8.3.0-14 hponcfg.noarch 0:2.2.0-5 hpsmh.x86_64 0:3.0.2-77
+Dependency Installed: compat-libstdc++-33.i386 0:3.2.3-61 compat-libstdc++-33.x86_64 0:3.2.3-61 libXaw.x86_64 0:1.0.2-8.1 libXmu.x86_64 0:1.0.2-5 libXpm.x86_64 0:3.5.5-3 lm_sensors.x86_64 0:2.10.7-4.el5 mesa-libGLU.x86_64 0:6.5.1-7.7.el5 net-snmp.x86_64 1:5.3.2.2-5.el5
+Complete!
+ --snip--
+----
++
+. Check disk usage in `/opt`
++
+----
+[pmorgan@lunch18 ~]$ sudo du -lsh /opt
+119M	/opt
+----
+
+==== Test configuration
+
+Dave Shouse provided configuration settings for the test installation.
+
+.Equinix
+SNMP trap destination is 6.3.5.202
+
+Telx
+SNMP trap destination is 6.4.5.202
+
+.Community strings for both environments
+SNMP read only string:     0p7im15e
+SNMP read/write string:    3p51lon!
+
+
+////
+=== Test build
+
+This section describes how to use a safe environment to build the interesting components described above.
+
+The HP documentation does _not_ provide suitable documentation
+for building packages to deploy PSP components. The official
+documentation dictates that compilers and kernel development utilities
+be installed on each target server. You must then run the HP `install.sh`
+script, which utilizes compilers to build components on the 
+target server and replace kernel modules. 
+
+
+==== Goals of test build
+
+The goals of a test build procedure:
+
+* Build in an isolated environment
+* Determine whether components are buildable
+* Determine build dependencies
+* Determine run-time dependencies
+
+==== Test build procedure
+
+I used `lunch18` as a build server for testing. This provides advantages:
+
+* Virtual server; no additional hardware required
+* Build architecture (x86_64) is same as target servers
+* No impact on other projects
+
+To build the packages on `lunch18`:
+
+. As `root` on `lunch18`, install compiler and RPM build tools
++
+----
+yum -y install gcc rpm-build
+----
++
+. As an unprivileged user on `lunch18`, establish a minimal _build environment_
++
+IMPORTANT: _Always_ build software as an unprivileged user; 
+_Never_ build as `root`.
++
+.. Create an RPM build tree
++
+----
+cp -r /usr/src/redhat ~/rpmbuild
+----
++
+.. Create `~/.rpmmacros`
++
+----
+%_topdir /home/pmorgan/rpmbuild
+----
++
+.. Confirm no typos
++
+----
+rpmbuild --showrc | grep topdir
+----
++
+Expected output:
++
+----
+-14: _builddir	%{_topdir}/BUILD
+-14: _rpmdir	%{_topdir}/RPMS
+-14: _sourcedir	%{_topdir}/SOURCES
+-14: _specdir	%{_topdir}/SPECS
+-14: _srcrpmdir	%{_topdir}/SRPMS
+-14: _topdir	/home/pmorgan/rpmbuild
+----
++
+. On laptop, copy interesting files to `lunch18`
++
+----
+interesting_pkgs="
+cpqacuxe 
+hpacucli 
+hpdiags 
+hp-health 
+hp-ilo 
+hponcfg 
+hpsmh 
+hp-snmp-agents 
+fibreutils
+"
+for pkg in $interesting_pkgs; do
+  scp ${pkg}*rpm pmorgan@lunch18:~/
+done
+----
++
+. As an unprivileged user on `lunch18`, prepare for building
+.. Check files
++
+----
+ls *rpm
+----
++
+.. Install SRPMs
++
+NOTE: Unprivileged users can only install SRPMs if the user
+has created a build environment as described above.
++
+----
+rpm -Uvh *.src.rpm
+----
+
+////
+
+
+=== RPM Details
+
+This section describes the major ingredients needed for
+building the RPMs for deployment.

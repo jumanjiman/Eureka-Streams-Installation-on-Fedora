@@ -1,0 +1,22 @@
+=== Recommendations
+
+==== Fix your DNS
+
+Please fix your DNS asap.
+
+==== Implement multicast correctly
+
+Really, I mean a $35 D-Link switch can do it.
+
+
+
+// comment-out any of the following that you don't want
+// or...include extras :-)
+
+include::satserver_generic.txt[]
+
+include::disable_services.txt[]
+
+include::centralized_logging.txt[]
+
+include::bash_scripting.txt[]

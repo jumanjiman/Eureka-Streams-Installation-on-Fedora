@@ -1,0 +1,88 @@
+include::variables.txt[]
+
+
+== Executive Summary
+
+This chapter provides a high-level overview of the project.
+
+
+=== Related documents
+
+* Statement of Work (SOW) 
+
+
+
+=== Technologies used
+
+
+This project incorporates the following technologies:
+
+include::technologies.d/redhat.txt[]
+
+//include::technologies.d/hp.txt[]
+
+//include::technologies.d/microsoft.txt[]
+
+
+
+=== Scope
+
+include::scope.d/content.txt[]
+
+include::scope.d/ej.txt[]
+
+include::scope.d/ejadm.txt[]
+
+include::scope.d/other.txt[]
+
+
+
+
+=== Challenges and Risks
+
+// This section describes issues encountered during delivery.
+// Emphasis should be on Cause-Effect-Workaround
+
+include::challenges.d/publican-versions.txt[]
+
+include::challenges.d/low-latency.txt[]
+
+include::challenges.d/dns.txt[]
+
+include::challenges.d/multicast.txt[]
+
+
+
+
+
+include::recommendations.d/recommendations.txt[]
+
+
+
+
+=== Reviewers
+
+[format="csv",cols="3*2",options="header"]
+|===================================================
+Name,Title,Email
+Jane Austen, Technical Writer, jane.austen@example.com
+Compliance Person, Senior Auditor, compliance.person@example.com
+Another Name, Project Manager, another.name@redhat.com
+Yet Another, Technical Account Manager, yet.another@redhat.com
+|===================================================
+
+
+
+=== Approvers
+
+
+[format="csv",cols="3*2",options="header"]
+|===================================================
+Name,Title,Email
+John Doe, Director of Systems Engineering, john.doe@example.com
+|===================================================
+
+
+
+
+

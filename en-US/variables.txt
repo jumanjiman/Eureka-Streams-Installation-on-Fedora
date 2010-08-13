@@ -1,0 +1,47 @@
+
+////
+This file contains variables that can be referenced
+anywhere in your document with curly brackets.
+
+example:
+
+My client is {client} and its 
+account number is {client_account_number}.
+
+////
+
+:client:	Client Name
+:client_account_number:	1xxxxx8
+:satserver:	rhn.satellite.fqdn
+:satserver_ip:	192.169.0.1
+
+
+// the consultant
+:Author:	Paul Morgan
+:Author_title:	Sr. Consultant
+:Author_phone:	317-jumanji
+:Email:		pmorgan@redhat.com
+
+// the delivery service manager
+:dsm:		Dan Simmons
+:dsm_phone:	832-390-9993
+:dsm_email:	dasimmon@redhat.com
+
+// the proj manager
+:pm:		Lanha Akamine
+:pm_phone:	NA
+:pm_email:	lakamaine@redhat.com
+
+// original creation
+:creation_date:	2009-Oct-31
+
+// current revision info
+:Date:		2009-Oct-31
+:Revision:	1.0
+
+// the sales team
+:Salesperson:	fsanders@redhat.com
+:sa:		jpriddy@redhat.com
+
+
+// vim: set syntax=asciidoc:

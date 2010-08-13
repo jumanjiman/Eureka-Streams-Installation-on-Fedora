@@ -1,0 +1,21 @@
+==== HP technologies
+
+HP technical documents::
+	http://docs.hp.com/
+
+HP technical docs specific to Linux::
+	http://tinyurl.com/y9cs866
+//	http://h20000.www2.hp.com/bizsupport/TechSupport/DocumentIndex.jsp?lang=en&cc=us&taskId=101&prodClassId=10008&contentType=SupportManual&docIndexId=64255&prodTypeId=18964&prodSeriesId=3215290
+
+HP ILO overview::
+	http://h20341.www2.hp.com/integrity/w1/en/software/integrity-lights-out.html?jumpid=ex_r11294_us/en/large/tsg/go_integrityilo
+
+HP supported browsers::
+	http://docs.hp.com/en/5991-8053-ed9/ch01s04.html?jumpid=reg_R1002_USEN
+
+HP ILO Best Practices::
+	http://h18000.www1.hp.com/products/servers/management/ilobest-practice.html
+
+Sample Perl scripts for scripting ILO::
+	http://tinyurl.com/ilo-scripting-samples
+

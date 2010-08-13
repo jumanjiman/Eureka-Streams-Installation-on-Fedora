@@ -1,0 +1,76 @@
+
+=== Install the needed RPMs
+
+
+. Download the RPMs from *where*?
++
+* `publican-redhatgps-*.noarch.rpm`
+* `engagement-journal-*.noarch.rpm`
++
+.. Store the RPMs in `/tmp/`
+.. List the executables in the package
++
+----
+rpm -qlp /tmp/engagement-journal-*.noarch.rpm | grep bin/
+----
++
+.. List the config files in the package
++
+----
+rpm -qcp /tmp/engagement-journal-*.noarch.rpm
+----
++
+.. List the doc files in the package
++
+----
+rpm -qdp /tmp/engagement-journal-*.noarch.rpm
+----
++
+. _Optionally_ import my GPG pubkey to your (non-`root`) keychain
+.. Import my key into your keychain _untrusted_
++
+----
+gpg --search-keys pmorgan@redhat.com
+----
++
+The above command should find and offer to import
+the 1024 bit DSA key `F59E77C2`, created: 2006-03-22.
++
+.. Check the key fingerprint
++
+----
+gpg --fingerprint F59E77C2
+----
++
+The output should look similar to:
++
+----
+pub   1024D/F59E77C2 2006-03-22
+      Key fingerprint = 3248 D0C8 4B42 2F7C D92A  AEA0 7D20 6D66 F59E 77C2
+uid                  Paul Morgan (GLS) <pmorgan@redhat.com>
+sub   1024g/735DAF52 2006-03-22
+----
++
+.. If you believe the key is genuine, export it to an ascii-armored text file
++
+----
+gpg --export -a F59E77C2 > /tmp/pm.pubkey
+----
++
+.. Import the pubkey to the RPM database
++
+----
+sudo rpm --import /tmp/pm.pubkey
+----
++
+. Configure `yum` repos
+.. RHEL 5 users should configure EPEL as described at http://fedoraproject.org/wiki/EPEL/FAQ#Using_EPEL
+.. Fedora users should enable the _Fedora Updates_ repository in `/etc/yum.repos.d/fedora-updates.repo`
+. Use `yum` to install as shown here
++
+----
+sudo yum -y localinstall /tmp/publican-redhatgps-*.noarch.rpm /tmp/engagement-journal-*.noarch.rpm
+----
++
+NOTE: If you did not import my pubkey, you will need to pass `yum`
+the `--nogpgcheck` option.

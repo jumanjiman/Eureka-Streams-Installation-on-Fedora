@@ -1,0 +1,85 @@
+
+=== Use PuTTY to access Linux hosts
+
+This section describes how to configure PuTTY for password-less
+authentication from Microsoft Windows clients to RHEL hosts.
+This assumes the RHEL hosts have been properly configured
+to use Active Directory for authentication.
+
+==== PuTTY versions
+
+There are two popular versions of PuTTY:
+
+* The developer snapshot available at  
+http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+provides experimental support for GSSAPI authentication.
+The development snapshot *2010-02-24:r8878* has been tested to use GSSAPI for authentication. 
+* the Qwest version of PuTTY available at
+
+==== PuTTY checklist
+
+For password-less authentication to work:
+
+* Reverse DNS lookups _must_ work or else ticket forwarding will fail.
+Use `dig -x <ip>` on a Linux host to confirm that reverse DNS lookups are working.
+* The Linux host must be trusted by AD for GSSAPI delegation
+in order to forward tickets from Windows to Linux.
++
+.AD Delegation for GSSAPI
+image::images/ad_delegation2.png[AD delegation for GSSAPI]
+
+==== PuTTY Configuration
+
+Follow these steps to configure Putty for password-less authentication.
+
+. Enable GSSAPI authentication for the host profile in PuTTY
++
+Putty must have _Attempt GSSAPI auth_ selected to enable Kerberos
+authentication. To enable credential delegation, _Allow GSSAPI
+credential delegation_ must also be selected:
++
+.GSSAPI options in PuTTY
+image::images/putty_config2.png[GSSAPI options in PuTTY]
++
+IMPORTANT: DNS must be properly configured for Kerberos authentication to
+succeed. Specifying an IP address instead of the hostname when
+connecting may not work.
++
+. Test the connection from a Windows machine. In the following attempt,
+notice that the server did not prompt for a password. Then, the command
+`klist -f` shows that a ticket is being used with the following flags:
++
+* F=can be forwarded
+* f=was forwarded (in this example from Windows to Linux)
++
+----
+Using username "pmorgan".
+Last login: Fri Feb 26 13:36:01 2010 from 172.21.5.65
+
+RHN Satellite kickstart on 2010-02-12
+
+[pmorgan@tb-gts01 ~]$ klist -f -5
+Ticket cache: FILE:/tmp/krb5cc_10000_sOMjHC7820
+Default principal: pmorgan@OFFICE.ISEOPTIONS.COM
+
+Valid starting     Expires            Service principal
+02/26/10 13:35:27  02/26/10 23:29:34  krbtgt/OFFICE.ISEOPTIONS.COM@OFFICE.ISEOPTIONS.COM
+        renew until 03/05/10 13:29:34, Flags: FfRA
+
+----
++
+Another ticket: This one shows the service ticket for `sshd` on the host `tb-gts02`.
++
+----
+[pmorgan@tb-gts01 ~]$ klist -f -5
+Ticket cache: FILE:/tmp/krb5cc_10000_RoOivM
+Default principal: pmorgan@OFFICE.ISEOPTIONS.COM
+
+Valid starting     Expires            Service principal
+03/03/10 11:04:08  03/03/10 21:04:08  krbtgt/OFFICE.ISEOPTIONS.COM@OFFICE.ISEOPTIONS.COM
+	renew until 03/03/10 21:04:08, Flags: FRIA
+03/03/10 11:04:13  03/03/10 21:04:08  host/tb-gts02.office.iseoptions.com@OFFICE.ISEOPTIONS.COM
+	renew until 03/03/10 21:04:08, Flags: FRAO
+
+----
+

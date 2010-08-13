@@ -1,0 +1,29 @@
+
+==== Performance Tuning Documentation
+
+Understanding NUMA vs. UMA architectures::
+	http://software.intel.com/sites/oss/pdfs/linux_scalability_in_a_numa_world.pdf
+
+SystemTap Homepage::
+	http://sourceware.org/systemtap/wiki
+
+SystemTap Beginner's Guide::
+	http://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5/pdf/SystemTap_Beginners_Guide.pdf
+
+SystemTap Language Reference::
+	http://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/pdf/SystemTap_Language_Reference.pdf
+
+SystemTap Tapset Reference::
+	http://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/pdf/SystemTap_Tapset_Reference.pdf
+
+////
+Tuning and Optimizing RHEL for Oracle 9i and 10g::
+	http://www.redhat.com/docs/manuals/enterprise/RHELTuningandOptimizationforOracleV11.pdf
+////
+
+Linux Performance and Tuning Guidelines::
+	http://www.redbooks.ibm.com/abstracts/redp4285.html?Open
+
+SystemTap: Instrumenting the Linux Kernel for Analyzing Performance and Functional Problems::
+	http://www.redbooks.ibm.com/abstracts/redp4469.html
+

@@ -1,0 +1,21 @@
+
+==== Technologies
+
+This project incorporates the following technologies:
+
+.Red Hat
+* Red Hat Enterprise Linux 5.3
+* Red Hat Enterprise Linux 5.4
+* Red Hat Cluster Suite
+//* Red Hat Certificate Server
+//* Red Hat Directory Server 8.0
+* Red Hat Global File System 2 (GFS2)
+* Red Hat Network Satellite Server 5.3
+
+.HP
+* HP ProLiant BL460c G6 with Intel Xeon CPU X5570 @ 2.93GHz
+* HP Integrated Lights Out (ILO) environment
+
+.Microsoft
+* Windows Server 2003 r2
+* Windows Server 2008
