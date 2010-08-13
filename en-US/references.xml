@@ -1,0 +1,145 @@
+<appendix id="_reference_material">
+<title>Reference Material</title>
+<simpara>This section of the engagement journal provides reference material pertaining
+to this engagement.</simpara>
+<section id="_red_hat_technologies">
+<title>Red Hat technologies</title>
+<variablelist>
+<varlistentry>
+<term>
+Cluster Suite Documentation
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://www.redhat.com/docs/manuals/csgfs/">http://www.redhat.com/docs/manuals/csgfs/</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+RHN Satellite Server
+</term>
+<listitem>
+<simpara>
+        <ulink url="https://www.redhat.com/docs/manuals/satellite/">https://www.redhat.com/docs/manuals/satellite/</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+How to update software channels for Satellite Server
+</term>
+<listitem>
+<simpara>
+        <ulink url="https://fedorahosted.org/spacewalk/browser/scripts/channel-to-update-level/">https://fedorahosted.org/spacewalk/browser/scripts/channel-to-update-level/</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Virt-Manager wiki
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://virt-manager.et.redhat.com/">http://virt-manager.et.redhat.com/</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Infiniband KBase
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://kbase.redhat.com/faq/docs/DOC-4168">http://kbase.redhat.com/faq/docs/DOC-4168</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+KBase RSS Feed
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://kbase.redhat.com/faq/community/feeds/documents?community=2001">http://kbase.redhat.com/faq/community/feeds/documents?community=2001</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Errata Twitter Feed
+</term>
+<listitem>
+<simpara>
+        @redhaterrata
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Online Storage Reconfiguration Guide
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/pdf/Online_Storage_Reconfiguration_Guide.pdf">http://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/pdf/Online_Storage_Reconfiguration_Guide.pdf</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Using Device-Mapper Multipath
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5.2/pdf/DM_Multipath/DM_Multipath.pdf">http://www.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5.2/pdf/DM_Multipath/DM_Multipath.pdf</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+LSB Compliance
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://refspecs.freestandards.org/LSB_3.1.0/LSB-Core-generic/LSB-Core-generic/iniscrptact.html">http://refspecs.freestandards.org/LSB_3.1.0/LSB-Core-generic/LSB-Core-generic/iniscrptact.html</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Configuring Network Bonds via <literal>sysfs</literal>
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://kbase.redhat.com/faq/docs/DOC-16006">http://kbase.redhat.com/faq/docs/DOC-16006</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+</section>
+<section id="_asciidoc">
+<title>Asciidoc</title>
+<variablelist>
+<varlistentry>
+<term>
+Asciidoc website
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://www.methods.co.nz/asciidoc/index.html">http://www.methods.co.nz/asciidoc/index.html</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Asciidoc cheat sheet
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://powerman.name/doc/asciidoc">http://powerman.name/doc/asciidoc</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+</section>
+</appendix>

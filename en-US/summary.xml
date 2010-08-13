@@ -1,0 +1,658 @@
+<chapter id="_executive_summary">
+<title>Executive Summary</title>
+<simpara>This chapter provides a high-level overview of the project.</simpara>
+<section id="_related_documents">
+<title>Related documents</title>
+<itemizedlist>
+<listitem>
+<simpara>
+Statement of Work (SOW)
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_technologies_used">
+<title>Technologies used</title>
+<simpara>This project incorporates the following technologies:</simpara>
+<itemizedlist><title>Red Hat</title>
+<listitem>
+<simpara>
+Publican
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Red Hat Enterprise Linux 5
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Fedora Linux
+
+
+
+
+
+
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_scope">
+<title>Scope</title>
+<section id="_focus_on_content_emphasis_not_emphasis_formatting">
+<title>Focus on content, <emphasis>not</emphasis> formatting</title>
+<simpara>This documentation system leverages open-source tools
+to create professional documents without worrying about the format.
+It provides several advantages:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Rapid document creation
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Include files directly
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Manage revisions
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Publish content automatically
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+Automatic formatting based on stylesheets
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Consistent look and feel
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Format is based on semantic content
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+Automatic creation of
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Table of contents
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+List of figures
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Index (based on tagged content)
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_create_professional_documents_based_on_templates">
+<title>Create professional documents based on templates</title>
+<simpara>This package provides the <literal>ej</literal> command for creating
+documents. The <literal>ej</literal> command is short for <emphasis role="strong">engagement journal</emphasis>
+and does several things:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Creates a working directory containing a template engagement journal
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Enables the author to work with plain-text files
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Provides a <literal>Makefile</literal>, which&#8230;
+</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+converts plain-text, lightweight markup into <literal>docbook</literal>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+converts <literal>docbook</literal> into well-formatted output, such as PDF
+</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+</itemizedlist>
+<note><simpara>The <literal>ej</literal> command provides the above features <emphasis>now</emphasis>.</simpara></note>
+</section>
+<section id="_manage_a_central_document_repository">
+<title>Manage a central document repository</title>
+<simpara>The <literal>ejadm</literal> command administers a collection of documents. In the future,
+the <literal>ejadm</literal> command will provide a front-end to version control
+and publishing, enabling users to:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+List documents by author, client name, or document title
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Search documents
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Publish documents
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Manage revisions
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Check-out documents
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Check-out document <emphasis>modules</emphasis>; e.g., runbook procedures
+</simpara>
+</listitem>
+</itemizedlist>
+<important><simpara>The <literal>ejadm</literal> command does not <emphasis>yet</emphasis> provide
+the features listed above.</simpara></important>
+</section>
+<section id="_another_scope_element">
+<title>Another scope element</title>
+<simpara>Use asciidoc in your source to denote things that
+should be <emphasis role="strong">bold</emphasis> or <emphasis>italicized</emphasis>.</simpara>
+<itemizedlist><title>List titles are optional and begin with a dot (no space)</title>
+<listitem>
+<simpara>
+First bullet point in no implied order of progression
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Second bullet point
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Sub-bullet
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Another sub-bullet
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+Third bullet point
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Denote commands, such as the <literal>cat /proc/cpuinfo</literal> command, in backticks
+</simpara>
+</listitem>
+</itemizedlist>
+<orderedlist numeration="arabic"><title>List titles are bold, and <emphasis>this portion is also italicized</emphasis></title>
+<listitem>
+<simpara>
+Numbered lists are good for procedures
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Pretty easy, right?
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+A sub-step
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Second sub-step
+</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Third major step
+</simpara>
+</listitem>
+</orderedlist>
+</section>
+</section>
+<section id="_challenges_and_risks">
+<title>Challenges and Risks</title>
+<section id="_publican_versions">
+<title>Publican versions</title>
+<simpara><emphasis role="strong">Publican</emphasis> embeds a <emphasis>product</emphasis> version number in the title of the document.
+This is really annoying, but fits within the design goals of <emphasis role="strong">Publican</emphasis>.</simpara>
+<simpara>Sigh&#8230;to get rid of it:</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Edit <literal>en-US/Book_Info.xml</literal>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Find the tag <literal>&lt;productnumber&gt;0.1&lt;/productnumber&gt;</literal>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Change it to read <literal>&lt;productnumber&gt;&lt;/productnumber&gt;</literal>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Rebuild by running the <literal>make all</literal> command
+</simpara>
+</listitem>
+</orderedlist>
+<note><simpara>A future version of the <literal>ej</literal> command will probably
+do this for you.</simpara></note>
+</section>
+<section id="_low_latency_environment">
+<title>Low-latency Environment</title>
+<simpara>This solution does not require any background
+process (also known as a <emphasis>daemon</emphasis>) to run. This avoids any impact on
+low-latency requirements for RHEL.</simpara>
+</section>
+<section id="_dns_architecture">
+<title>DNS Architecture</title>
+<simpara>Any network infrastructure based on TCP/IP protocols should
+have a well-designed DNS. This document provides work-arounds
+for an infrastructure in which DNS is less than optimal.</simpara>
+<itemizedlist><title>Causes</title>
+<listitem>
+<simpara>
+Lack of heirarchical delegation to subdomains
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Missing <literal>A</literal> records
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Inconsistent <literal>cname</literal> records
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Improper forwarders
+</simpara>
+</listitem>
+</itemizedlist>
+<itemizedlist><title>Effects</title>
+<listitem>
+<simpara>
+Hosts cannot reach each other
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Kerberos-based authentication fails
+</simpara>
+</listitem>
+</itemizedlist>
+<itemizedlist><title>Workarounds</title>
+<listitem>
+<simpara>
+Pre-populating the <literal>/etc/hosts</literal> file provides unique names for each record
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+A naming standard has been developed for adding entries to the <literal>/etc/hosts</literal> file
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Use RHN Satellite Server to push out the <literal>/etc/hosts</literal> file
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_multicast_traffic">
+<title>Multicast traffic</title>
+<simpara>Red Hat Cluster Suite requires multicast traffic on intervening switches.</simpara>
+</section>
+</section>
+<section id="_recommendations">
+<title>Recommendations</title>
+<section id="_fix_your_dns">
+<title>Fix your DNS</title>
+<simpara>Please fix your DNS asap.</simpara>
+</section>
+<section id="_implement_multicast_correctly">
+<title>Implement multicast correctly</title>
+<simpara>Really, I mean a $35 D-Link switch can do it.</simpara>
+</section>
+<section id="_design_a_standard_operating_environment_around_client_name_s_satellite_server">
+<title>Design a standard operating environment around Client Name's Satellite Server</title>
+<simpara>Client Name has an RHN Satellite Server. We should develop a plan to:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Define standard configurations for Client Name RHEL servers
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Add existing servers to the satellite server for management of
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Patches
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+In-house software
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Configuration files that deviate from stock. RHN Satellite
+    server provides basic revision control for config files.
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+Deploy future servers
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_disable_unnecessary_services">
+<title>Disable unnecessary services</title>
+<simpara>A number of services are enabled by default and can
+be disabled to save resources. The following code snippet
+can be added as a standard part of <literal>%post</literal> in a
+baseline kickstart.</simpara>
+<screen>#!/bin/bash
+
+unnecessary="
+avahi-daemon
+pcscd
+bluetooth
+hidd
+iptables
+cpuspeed
+"
+
+prog=$(basename $0)
+def_run=$(grep '^id.*initdefault' /etc/inittab | cut -d: -f2)
+
+for svc in $unnecessary; do
+  chkconfig --list $svc | grep -q "$def_run:on" &amp;&amp; continue
+  logger -t $prog "disabling $svc"
+  service $svc stop
+  chkconfig $svc off
+done
+
+file=/etc/sysconfig/network
+grep -q NOZEROCONF $file || \
+(
+  logger -t $prog "disabling zeroconf"
+  echo "NOZEROCONF=disabled" &gt;&gt; $file
+)</screen>
+<simpara>The script reports its actions in <literal>/var/log/messages</literal>, as
+shown in this example output:</simpara>
+<screen>Nov 17 16:51:42 hostname disable-services: disabling avahi-daemon
+Nov 17 16:51:42 hostname disable-services: disabling pcscd
+Nov 17 16:51:44 hostname disable-services: disabling bluetooth
+Nov 17 16:51:44 hostname disable-services: disabling hidd
+Nov 17 16:51:44 hostname disable-services: disabling iptables
+Nov 17 16:51:44 hostname disable-services: disabling cpuspeed</screen>
+</section>
+<section id="_centralized_logging">
+<title>Centralized logging</title>
+<simpara>We should consider making <emphasis role="strong">rsyslog</emphasis> a part of the baseline
+build. A centralized log host can be virtualized and addressed
+using a DNS CNAME, such as <emphasis role="strong">syslog01</emphasis>. This would allow
+the virtual host to be relocated as needed without impacting
+existing configurations.</simpara>
+<sidebar>
+<simpara>Rsyslog is an enhanced multi-threaded syslogd supporting, among
+others, MySQL, syslog/tcp, RFC 3195, permitted sender lists,
+filtering on any message part, and fine grain output format
+control. It is quite compatible to stock sysklogd and can be used
+as a drop-in replacement. Its advanced features make it suitable
+for enterprise-class, encryption protected syslog relay chains
+while at the same time being very easy to setup for the novice
+user.</simpara>
+</sidebar>
+</section>
+<section id="_event_correlation">
+<title>Event correlation</title>
+<simpara>Client Name should consider
+installing <emphasis role="strong">Simple Event Correlator</emphasis> (<emphasis role="strong">SEC</emphasis>) on the <literal>syslog</literal> host.</simpara>
+<simpara>See <ulink url="http://simple-evcorr.sourceforge.net">http://simple-evcorr.sourceforge.net</ulink> for more information on <emphasis role="strong">SEC</emphasis>.</simpara>
+<blockquote>
+<attribution>
+<citetitle>http://simple-evcorr.sourceforge.net</citetitle>
+</attribution>
+<simpara>SEC is an open source and platform independent event correlation tool
+that was designed to fill the gap between commercial event correlation
+systems and homegrown solutions that usually comprise a few simple
+shell scripts. SEC accepts input from regular files, named pipes,
+and standard input, and can thus be employed as an event correlator
+for any application that is able to write its output events to a
+file stream. The SEC configuration is stored in text files as rules,
+each rule specifying an event matching condition, an action list,
+and optionally a Boolean expression whose truth value decides whether
+the rule can be applied at a given moment. Regular expressions, Perl
+subroutines, etc. are used for defining event matching conditions. SEC
+can produce output events by executing user-specified shell scripts
+or programs (e.g., snmptrap or mail), by writing messages to pipes
+or files, and by various other means.</simpara>
+<simpara>SEC has been successfully applied in various domains like network
+management, system monitoring, data security, intrusion detection,
+log file monitoring and analysis, etc. The applications SEC has
+been used or integrated with include HP OpenView NNM and Operations,
+CiscoWorks, BMC Patrol, Nagios, SNMPTT, Snort IDS, Prelude IDS, etc.</simpara>
+</blockquote>
+</section>
+<section id="_bash_scripting">
+<title>Bash Scripting</title>
+<simpara>Client Name admins should develop Bash scripting skills.
+I spent some time with the Linux team to cover scripting
+and command-line navigation.  Using scripts to
+automate management tasks provides useful benefits:</simpara>
+<itemizedlist><title>Benefits of Bash scripting</title>
+<listitem>
+<simpara>
+Understand how system scripts operate
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Resolve run-time issues with servers
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Ability to test scripts before running in production
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Avoids risk of entering commands by hand on production servers
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Reproduce tasks efficiently
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Over time, build a library of common scripts
+</simpara>
+</listitem>
+</itemizedlist>
+<formalpara><title>Free, self-study resources</title><para>The following two resources are freely available online
+and provide a great reference for individuals who prefer
+to self-study.</para></formalpara>
+<variablelist>
+<varlistentry>
+<term>
+Introductory tutorial on Bash scripting
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html">http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Advanced Bash scripting guide (PDF)
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://freshmeat.net/projects/advancedbashscriptingguide">http://freshmeat.net/projects/advancedbashscriptingguide</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<formalpara><title>Instructor-led training</title><para>For instructor-led training with labs, Red Hat offers a course
+that includes Bash scripting and Linux command-line skills.
+RH033 <emphasis>Red Hat Linux Essentials for Windows
+Professionals and other Operating System Users</emphasis> is available in
+a traditional corporate classroom environment or as a virtual
+Internet-based class.</para></formalpara>
+<variablelist>
+<varlistentry>
+<term>
+Red Hat classroom course RH033
+</term>
+<listitem>
+<simpara>
+        <ulink url="https://www.redhat.com/courses/rh033_red_hat_linux_essentials">https://www.redhat.com/courses/rh033_red_hat_linux_essentials</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Red Hat virtual course  RH033VT
+</term>
+<listitem>
+<simpara>
+        <ulink url="https://www.redhat.com/elearning/rh033vt_red_hat_linux_essentials/">https://www.redhat.com/elearning/rh033vt_red_hat_linux_essentials/</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+</section>
+</section>
+<section id="_reviewers">
+<title>Reviewers</title>
+<informaltable
+frame="all"
+rowsep="1" colsep="1"
+>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33*"/>
+<colspec colname="col_2" colwidth="33*"/>
+<colspec colname="col_3" colwidth="33*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Name</entry>
+<entry align="left" valign="top">Title</entry>
+<entry align="left" valign="top">Email</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>Jane Austen</simpara></entry>
+<entry align="left" valign="top"><simpara>Technical Writer</simpara></entry>
+<entry align="left" valign="top"><simpara><ulink url="mailto:jane.austen@example.com">jane.austen@example.com</ulink></simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Compliance Person</simpara></entry>
+<entry align="left" valign="top"><simpara>Senior Auditor</simpara></entry>
+<entry align="left" valign="top"><simpara><ulink url="mailto:compliance.person@example.com">compliance.person@example.com</ulink></simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Another Name</simpara></entry>
+<entry align="left" valign="top"><simpara>Project Manager</simpara></entry>
+<entry align="left" valign="top"><simpara><ulink url="mailto:another.name@redhat.com">another.name@redhat.com</ulink></simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>Yet Another</simpara></entry>
+<entry align="left" valign="top"><simpara>Technical Account Manager</simpara></entry>
+<entry align="left" valign="top"><simpara><ulink url="mailto:yet.another@redhat.com">yet.another@redhat.com</ulink></simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</section>
+<section id="_approvers">
+<title>Approvers</title>
+<informaltable
+frame="all"
+rowsep="1" colsep="1"
+>
+<tgroup cols="3">
+<colspec colname="col_1" colwidth="33*"/>
+<colspec colname="col_2" colwidth="33*"/>
+<colspec colname="col_3" colwidth="33*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Name</entry>
+<entry align="left" valign="top">Title</entry>
+<entry align="left" valign="top">Email</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>John Doe</simpara></entry>
+<entry align="left" valign="top"><simpara>Director of Systems Engineering</simpara></entry>
+<entry align="left" valign="top"><simpara><ulink url="mailto:john.doe@example.com">john.doe@example.com</ulink></simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</section>
+</chapter>

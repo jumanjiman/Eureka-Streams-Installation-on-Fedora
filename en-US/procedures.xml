@@ -1,0 +1,500 @@
+<chapter id="_runbook_procedures">
+<title>Runbook Procedures</title>
+<simpara>This chapter provides high-level, task-oriented procedures
+related to this project. They are intended to act
+as a starting point for operational procedures in runbooks.</simpara>
+<section id="_install_the_needed_rpms">
+<title>Install the needed RPMs</title>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Download the RPMs from <emphasis role="strong">where</emphasis>?
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+<literal>publican-redhatgps-*.noarch.rpm</literal>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<literal>engagement-journal-*.noarch.rpm</literal>
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Store the RPMs in <literal>/tmp/</literal>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+List the executables in the package
+</simpara>
+<screen>rpm -qlp /tmp/engagement-journal-*.noarch.rpm | grep bin/</screen>
+</listitem>
+<listitem>
+<simpara>
+List the config files in the package
+</simpara>
+<screen>rpm -qcp /tmp/engagement-journal-*.noarch.rpm</screen>
+</listitem>
+<listitem>
+<simpara>
+List the doc files in the package
+</simpara>
+<screen>rpm -qdp /tmp/engagement-journal-*.noarch.rpm</screen>
+</listitem>
+</orderedlist>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>
+<emphasis>Optionally</emphasis> import my GPG pubkey to your (non-<literal>root</literal>) keychain
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Import my key into your keychain <emphasis>untrusted</emphasis>
+</simpara>
+<screen>gpg --search-keys pmorgan@redhat.com</screen>
+<simpara>The above command should find and offer to import
+the 1024 bit DSA key <literal>F59E77C2</literal>, created: 2006-03-22.</simpara>
+</listitem>
+<listitem>
+<simpara>
+Check the key fingerprint
+</simpara>
+<screen>gpg --fingerprint F59E77C2</screen>
+<simpara>The output should look similar to:</simpara>
+<screen>pub   1024D/F59E77C2 2006-03-22
+      Key fingerprint = 3248 D0C8 4B42 2F7C D92A  AEA0 7D20 6D66 F59E 77C2
+uid                  Paul Morgan (GLS) &lt;pmorgan@redhat.com&gt;
+sub   1024g/735DAF52 2006-03-22</screen>
+</listitem>
+<listitem>
+<simpara>
+If you believe the key is genuine, export it to an ascii-armored text file
+</simpara>
+<screen>gpg --export -a F59E77C2 &gt; /tmp/pm.pubkey</screen>
+</listitem>
+<listitem>
+<simpara>
+Import the pubkey to the RPM database
+</simpara>
+<screen>sudo rpm --import /tmp/pm.pubkey</screen>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Configure <literal>yum</literal> repos
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+RHEL 5 users should configure EPEL as described at <ulink url="http://fedoraproject.org/wiki/EPEL/FAQ#Using_EPEL">http://fedoraproject.org/wiki/EPEL/FAQ#Using_EPEL</ulink>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Fedora users should enable the <emphasis>Fedora Updates</emphasis> repository in <literal>/etc/yum.repos.d/fedora-updates.repo</literal>
+</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Use <literal>yum</literal> to install as shown here
+</simpara>
+<screen>sudo yum -y localinstall /tmp/publican-redhatgps-*.noarch.rpm /tmp/engagement-journal-*.noarch.rpm</screen>
+<note><simpara>If you did not import my pubkey, you will need to pass <literal>yum</literal>
+the <literal>--nogpgcheck</literal> option.</simpara></note>
+</listitem>
+</orderedlist>
+</section>
+<section id="_create_your_first_document">
+<title>Create your first document</title>
+<simpara>In this section, you&#8217;ll create your first document,
+then modify it in various ways.</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Use <literal>ej</literal> to create a new document
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Look at the command usage
+</simpara>
+<screen>$ ej -h
+Usage: ej -c "Client Name" -t "Project Title" [-b] [-f] [-l]
+  -b brand (default=redhatgps)
+  -f journal|book (default=book)
+  -l language (default=en-US)
+Note: "Client Name" should conform to "[^a-zA-Z_\- ]"
+Note: "Project Title" should conform to "[^a-zA-Z_\-0-9. ]"</screen>
+</listitem>
+<listitem>
+<simpara>
+Create your document
+</simpara>
+<screen>ej -c "My Client" -t "Test Project"</screen>
+<simpara>The above command:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+creates <literal>~/ej/My_Client/Test_Project/</literal>,
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+installs a template into that directory,
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+then builds the template into a PDF.
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Use your favorite PDF viewer to look at the build
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Use your favorite text editor, such as <literal>vim</literal>, to review
+the source files in <literal>Test_Project/en-US/*.txt</literal>
+</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section id="_change_the_literal_draft_literal_status_of_your_document">
+<title>Change the <literal>DRAFT</literal> status of your document</title>
+<simpara>The default template included with this package
+sets the status of your EJ to <literal>DRAFT</literal>. Use this
+procedure to remove <literal>DRAFT</literal> status when the document
+is finalized.</simpara>
+<orderedlist numeration="arabic"><title>Remove the <literal>DRAFT</literal> status</title>
+<listitem>
+<simpara>
+Edit <literal>en-US/&lt;Book_Title&gt;.xml</literal>
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Find the <literal>&lt;book status="draft"&gt;</literal> element
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Change it to <literal>&lt;book&gt;</literal>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Save your changes
+</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Run <literal>make all</literal>
+</simpara>
+</listitem>
+</orderedlist>
+<orderedlist numeration="arabic"><title>Add the <literal>DRAFT</literal> status</title>
+<listitem>
+<simpara>
+Edit <literal>en-US/&lt;Book_Title&gt;.xml</literal>
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Find the <literal>&lt;book&gt;</literal> element
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Change it to <literal>&lt;book status="draft"&gt;</literal>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Save your changes
+</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Run <literal>make all</literal>
+</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section id="_change_the_literal_confidential_literal_status_of_your_document">
+<title>Change the <literal>Confidential</literal> status of your document</title>
+<simpara>The default template included with this package
+sets the status of your EJ to <literal>Red Hat Confidential: Internal Use Only</literal>.
+Use this procedure to remove <literal>Confidential</literal> status before delivering
+the document to your customer.</simpara>
+<orderedlist numeration="arabic"><title>Remove <literal>Confidential</literal> status</title>
+<listitem>
+<simpara>
+Edit <literal>publican.cfg</literal> in the same directory as the <literal>Makefile</literal>
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Change <literal>confidential: 1</literal> to <literal>confidential: 0</literal>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Save your changes
+</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Run <literal>make all</literal>
+</simpara>
+</listitem>
+</orderedlist>
+<orderedlist numeration="arabic"><title>Add <literal>Confidential</literal> status</title>
+<listitem>
+<simpara>
+Edit <literal>publican.cfg</literal> in the same directory as the <literal>Makefile</literal>
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Change <literal>confidential: 0</literal> to <literal>confidential: 1</literal>
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Save your changes
+</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Run <literal>make all</literal>
+</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section id="_shell_access_to_the_rhn_satellite_api">
+<title>Shell access to the RHN Satellite API</title>
+<simpara>The <literal>spacecmd</literal> package provides a command-line shell interface
+to RHN Satellite Server version 5.3 and later.</simpara>
+<section id="_install_literal_spacecmd_literal">
+<title>Install <literal>spacecmd</literal></title>
+<simpara>Visit <ulink url="http://people.redhat.com/aparsons/">http://people.redhat.com/aparsons/</ulink> to download this utility
+in RPM format, then install normally.</simpara>
+</section>
+<section id="_use_literal_spacecmd_literal_as_a_shell">
+<title>Use <literal>spacecmd</literal> as a shell</title>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Open a Bash session
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Connect to your satellite server via <literal>spacecmd</literal>
+</simpara>
+<screen>$ spacecmd -u satadmin -s mysat.fqdn
+Password: ******
+
+Welcome to spacecmd, a command line interface to Spacewalk.
+
+For a full set of commands, type 'help' on the prompt.
+For help for a specific command try 'help &lt;cmd&gt;'.
+
+spacecmd&gt; help
+
+Documented commands (type help &lt;topic&gt;):
+========================================
+activationkey_details      login                         system_rename
+activationkey_list         logout                        system_runscript
+activationkey_listsystems  package_details               system_search
+clear                      package_search                system_setbasechannel
+clear_caches               schedule_cancel               system_upgradepackage
+configchannel_details      schedule_getoutput            whoami
+configchannel_filedetails  schedule_listarchived         whoamitalkingto
+configchannel_list         schedule_listcompleted
+configchannel_listfiles    schedule_listfailed
+configchannel_listsystems  schedule_listpending
+cryptokey_details          schedule_summary
+cryptokey_list             softwarechannel_details
+errata_details             softwarechannel_list
+errata_search              softwarechannel_listerrata
+get_apiversion             softwarechannel_listpackages
+get_certificateexpiration  softwarechannel_listsystems
+get_entitlements           ssm_add
+get_serverversion          ssm_clear
+group_addsystems           ssm_list
+group_create               ssm_rm
+group_delete               system_addchildchannel
+group_details              system_applyerrata
+group_list                 system_delete
+group_listsystems          system_details
+group_removesystems        system_installpackage
+help                       system_list
+history                    system_listerrata
+kickstart_details          system_listhardware
+kickstart_getfile          system_listinstalledpackages
+kickstart_list             system_listupgrades
+kickstart_listsnippets     system_removechildchannel
+kickstart_snippetdetails   system_removepackage
+
+Miscellaneous help topics:
+==========================
+ssm
+
+spacecmd&gt;</screen>
+</listitem>
+</orderedlist>
+</section>
+<section id="_use_literal_spacecmd_literal_in_scripts">
+<title>Use <literal>spacecmd</literal> in scripts</title>
+<simpara>This example shows how to use <literal>spacecmd</literal> in a Bash script.</simpara>
+<screen>for server in $(spacecmd -u admin -s exta-inf1 system_list | grep '^pc-' | sort -u)
+do
+  # really glad that spacecmd caches login creds
+  echo -n "$server : "
+  spacecmd -u admin -s exta-inf1 system_listhardware "$server" 2&gt; /dev/null | awk '/RAM/{print $2}'
+done</screen>
+</section>
+</section>
+<section id="_use_putty_to_access_linux_hosts">
+<title>Use PuTTY to access Linux hosts</title>
+<simpara>This section describes how to configure PuTTY for password-less
+authentication from Microsoft Windows clients to RHEL hosts.
+This assumes the RHEL hosts have been properly configured
+to use Active Directory for authentication.</simpara>
+<section id="_putty_versions">
+<title>PuTTY versions</title>
+<simpara>There are two popular versions of PuTTY:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+The developer snapshot available at
+<ulink url="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</ulink>
+provides experimental support for GSSAPI authentication.
+The development snapshot <emphasis role="strong">2010-02-24:r8878</emphasis> has been tested to use GSSAPI for authentication.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+the Qwest version of PuTTY available at
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_putty_checklist">
+<title>PuTTY checklist</title>
+<simpara>For password-less authentication to work:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Reverse DNS lookups <emphasis>must</emphasis> work or else ticket forwarding will fail.
+Use <literal>dig -x &lt;ip&gt;</literal> on a Linux host to confirm that reverse DNS lookups are working.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+The Linux host must be trusted by AD for GSSAPI delegation
+in order to forward tickets from Windows to Linux.
+</simpara>
+<figure><title>AD Delegation for GSSAPI</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/ad_delegation2.png"/>
+  </imageobject>
+  <textobject><phrase>AD delegation for GSSAPI</phrase></textobject>
+</mediaobject>
+</figure>
+</listitem>
+</itemizedlist>
+</section>
+<section id="_putty_configuration">
+<title>PuTTY Configuration</title>
+<simpara>Follow these steps to configure Putty for password-less authentication.</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Enable GSSAPI authentication for the host profile in PuTTY
+</simpara>
+<simpara>Putty must have <emphasis>Attempt GSSAPI auth</emphasis> selected to enable Kerberos
+authentication. To enable credential delegation, <emphasis>Allow GSSAPI
+credential delegation</emphasis> must also be selected:</simpara>
+<figure><title>GSSAPI options in PuTTY</title>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/putty_config2.png"/>
+  </imageobject>
+  <textobject><phrase>GSSAPI options in PuTTY</phrase></textobject>
+</mediaobject>
+</figure>
+<important><simpara>DNS must be properly configured for Kerberos authentication to
+succeed. Specifying an IP address instead of the hostname when
+connecting may not work.</simpara></important>
+</listitem>
+<listitem>
+<simpara>
+Test the connection from a Windows machine. In the following attempt,
+notice that the server did not prompt for a password. Then, the command
+<literal>klist -f</literal> shows that a ticket is being used with the following flags:
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+F=can be forwarded
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+f=was forwarded (in this example from Windows to Linux)
+</simpara>
+<screen>Using username "pmorgan".
+Last login: Fri Feb 26 13:36:01 2010 from 172.21.5.65
+
+RHN Satellite kickstart on 2010-02-12
+
+[pmorgan@tb-gts01 ~]$ klist -f -5
+Ticket cache: FILE:/tmp/krb5cc_10000_sOMjHC7820
+Default principal: pmorgan@OFFICE.ISEOPTIONS.COM
+
+Valid starting     Expires            Service principal
+02/26/10 13:35:27  02/26/10 23:29:34  krbtgt/OFFICE.ISEOPTIONS.COM@OFFICE.ISEOPTIONS.COM
+        renew until 03/05/10 13:29:34, Flags: FfRA</screen>
+<simpara>Another ticket: This one shows the service ticket for <literal>sshd</literal> on the host <literal>tb-gts02</literal>.</simpara>
+<screen>[pmorgan@tb-gts01 ~]$ klist -f -5
+Ticket cache: FILE:/tmp/krb5cc_10000_RoOivM
+Default principal: pmorgan@OFFICE.ISEOPTIONS.COM
+
+Valid starting     Expires            Service principal
+03/03/10 11:04:08  03/03/10 21:04:08  krbtgt/OFFICE.ISEOPTIONS.COM@OFFICE.ISEOPTIONS.COM
+        renew until 03/03/10 21:04:08, Flags: FRIA
+03/03/10 11:04:13  03/03/10 21:04:08  host/tb-gts02.office.iseoptions.com@OFFICE.ISEOPTIONS.COM
+        renew until 03/03/10 21:04:08, Flags: FRAO</screen>
+</listitem>
+</itemizedlist>
+</listitem>
+</orderedlist>
+</section>
+</section>
+</chapter>
