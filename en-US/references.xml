@@ -47,7 +47,7 @@ Wikipedia article
 </section>
 <section id="_documentation_tools">
 <title>Documentation tools</title>
-<simpara>This document is available in Asciidoc source.
+<simpara>This document is available in source form on Github.
 Building the document requires three tools:</simpara>
 <itemizedlist>
 <listitem>
@@ -87,16 +87,6 @@ Asciidoc website
 </varlistentry>
 <varlistentry>
 <term>
-Asciidoc cheat sheet
-</term>
-<listitem>
-<simpara>
-        <ulink url="http://powerman.name/doc/asciidoc">http://powerman.name/doc/asciidoc</ulink>
-</simpara>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term>
 Publican
 </term>
 <listitem>
@@ -112,6 +102,16 @@ Engagement-Journal
 <listitem>
 <simpara>
         <ulink url="http://github.com/jumanjiman/engagement-journal">http://github.com/jumanjiman/engagement-journal</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Source for this document
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://github.com/jumanjiman/Eureka-Streams-Installation-on-Fedora">http://github.com/jumanjiman/Eureka-Streams-Installation-on-Fedora</ulink>
 </simpara>
 </listitem>
 </varlistentry>
