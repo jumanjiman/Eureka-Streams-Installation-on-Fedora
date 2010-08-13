@@ -1,6 +1,6 @@
-=== Eurekastreams
+=== Eureka Streams
 
-Eurekastreams public site::
+Eureka Streams official site::
 	http://www.eurekastreams.org
 
 Github:: 
