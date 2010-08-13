@@ -1,6 +1,6 @@
 
-== Technical Discussion
+== Technical Overview
 
-This section provides technical details about the packaging and deployment
-of Eureka Streams.
+This section provides a high-level technical discussion about the 
+packaging and deployment of Eureka Streams.
 
