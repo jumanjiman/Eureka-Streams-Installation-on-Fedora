@@ -76,50 +76,201 @@ cd /opt/eurekastreams
 ----
 
 . Install Shindig 
+
+.. Common components
 +
 ----
 mvn install:install-file -Dfile=lib/shindig-common-3.3.jar \
 	-DgroupId=org.apache.shindig \
 	-DartifactId=shindig-common -Dversion=3.3 \
 	-Dpackaging=jar -DgeneratePom=true
+----
++
+The above command will download components from the Internet,
+install components, and report its final status:
++
+----
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 45 seconds
+[INFO] Finished at: Fri Aug 13 15:48:10 EDT 2010
+[INFO] Final Memory: 6M/54M
+[INFO] ------------------------------------------------------------------------
+----
 
+.. Features
++
+----
 mvn install:install-file -Dfile=lib/shindig-features-3.3.jar \
 	-DgroupId=org.apache.shindig \
 	-DartifactId=shindig-features -Dversion=3.3 \
 	-Dpackaging=jar -DgeneratePom=true
+----
++
+The above command will download components from the Internet,
+install components, and report its final status:
++
+----
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1 second
+[INFO] Finished at: Fri Aug 13 15:50:53 EDT 2010
+[INFO] Final Memory: 5M/52M
+[INFO] ------------------------------------------------------------------------
+----
 
+.. Gadgets
++
+----
 mvn install:install-file -Dfile=lib/shindig-gadgets-3.3.jar \
 	-DgroupId=org.apache.shindig \
 	-DartifactId=shindig-gadgets -Dversion=3.3 \
 	-Dpackaging=jar -DgeneratePom=true
+----
++
+The above command will download components from the Internet,
+install components, and report its final status:
++
+----
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1 second
+[INFO] Finished at: Fri Aug 13 15:52:23 EDT 2010
+[INFO] Final Memory: 5M/53M
+[INFO] ------------------------------------------------------------------------
+----
 
+.. Server
++
+----
 mvn install:install-file -Dfile=lib/shindig-server-3.3.war \
 	-DgroupId=org.apache.shindig \
 	-DartifactId=shindig-server -Dversion=3.3 \
 	-Dpackaging=war -DgeneratePom=true
+----
++
+The above command will download components from the Internet,
+install components, and report its final status:
++
+----
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1 second
+[INFO] Finished at: Fri Aug 13 15:53:03 EDT 2010
+[INFO] Final Memory: 5M/53M
+[INFO] ------------------------------------------------------------------------
+----
 
+.. Social API
++
+----
 mvn install:install-file -Dfile=lib/shindig-social-api-3.3.jar \
 	-DgroupId=org.apache.shindig \
 	-DartifactId=shindig-social-api -Dversion=3.3 \
 	-Dpackaging=jar -DgeneratePom=true
+----
++
+The above command will download components from the Internet,
+install components, and report its final status:
++
+----
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1 second
+[INFO] Finished at: Fri Aug 13 15:53:57 EDT 2010
+[INFO] Final Memory: 5M/53M
+[INFO] ------------------------------------------------------------------------
+----
 
+.. Common
++
+----
 mvn install:install-file -Dfile=lib/shindig-common-3.3-tests.jar \
 	-DgroupId=org.apache.shindig \
 	-DartifactId=shindig-common -Dversion=3.3 \
 	-Dpackaging=test-jar -DgeneratePom=true
+----
++
+The above command will download components from the Internet,
+install components, and report its final status:
++
+----
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1 second
+[INFO] Finished at: Fri Aug 13 15:54:31 EDT 2010
+[INFO] Final Memory: 5M/53M
+[INFO] ------------------------------------------------------------------------
+----
 
+.. GWT DND
++
+----
 mvn install:install-file -Dfile=lib/gwt-dnd-2.6.5.2.jar \
 	-DgroupId=com.google.code.gwt-dnd \
 	-DartifactId=gwt-dnd -Dversion=2.6.5.2 \
 	-Dpackaging=jar -DgeneratePom=true
+----
++
+The above command will download components from the Internet,
+install components, and report its final status:
++
+----
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1 second
+[INFO] Finished at: Fri Aug 13 15:55:09 EDT 2010
+[INFO] Final Memory: 5M/53M
+[INFO] ------------------------------------------------------------------------
+----
 
+.. Carousel
++
+----
 mvn install:install-file -Dfile=lib/carousel-0.6.1.jar \
 	-DgroupId=com.gwtyuicarousel \
 	-DartifactId=carousel -Dversion=0.6.1 \
 	-Dpackaging=jar -DgeneratePom=true
+----
++
+The above command will download components from the Internet,
+install components, and report its final status:
++
+----
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1 second
+[INFO] Finished at: Fri Aug 13 15:55:51 EDT 2010
+[INFO] Final Memory: 5M/53M
+[INFO] ------------------------------------------------------------------------
+----
 
+.. URLrewrite
++
+----
 mvn install:install-file -Dfile=lib/urlrewrite-3.2.0-beta.jar \
 	-DgroupId=org.tuckey \
 	-DartifactId=urlrewrite -Dversion=3.2.0-beta \
 	-Dpackaging=jar -DgeneratePom=true
+----
++
+The above command will download components from the Internet,
+install components, and report its final status:
++
+----
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: < 1 second
+[INFO] Finished at: Fri Aug 13 15:56:39 EDT 2010
+[INFO] Final Memory: 5M/53M
+[INFO] ------------------------------------------------------------------------
 ----
