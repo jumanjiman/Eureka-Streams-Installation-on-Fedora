@@ -1,7 +1,7 @@
 <chapter id="_runbook_procedures">
 <title>Runbook Procedures</title>
-<section id="_installation">
-<title>Installation</title>
+<section id="_manual_installation">
+<title>Manual Installation</title>
 <simpara>This installation is based on the instructions at
 <ulink url="http://www.eurekastreams.org/build-and-run/">http://www.eurekastreams.org/build-and-run/</ulink>.</simpara>
 <section id="_install_prerequisite_packages">
