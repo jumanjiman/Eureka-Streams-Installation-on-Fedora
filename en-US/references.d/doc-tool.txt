@@ -1,6 +1,6 @@
 === Documentation tools
 
-This document is available in Asciidoc source.
+This document is available in source form on Github.
 Building the document requires three tools:
 
 * 'Asciidoc' provides a lightweight markup syntax
@@ -22,12 +22,11 @@ Building the document requires three tools:
 Asciidoc website::
 	http://www.methods.co.nz/asciidoc/index.html[]
 
-Asciidoc cheat sheet::
-	http://powerman.name/doc/asciidoc[]
-
 Publican::
 	https://fedorahosted.org/publican[]
 
 Engagement-Journal::
 	http://github.com/jumanjiman/engagement-journal[]
 
+Source for this document::
+	http://github.com/jumanjiman/Eureka-Streams-Installation-on-Fedora[]
