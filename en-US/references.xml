@@ -45,8 +45,35 @@ Wikipedia article
 </varlistentry>
 </variablelist>
 </section>
-<section id="_asciidoc">
-<title>Asciidoc</title>
+<section id="_documentation_tools">
+<title>Documentation tools</title>
+<simpara>This document is available in Asciidoc source.
+Building the document requires three tools:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+<emphasis>Asciidoc</emphasis> provides a lightweight markup syntax
+  and a command-line tool to convert source content
+  into Docbook format. The Asciidoc package is available
+  in the standard Fedora <literal>yum</literal> repositories.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<emphasis>Publican</emphasis> provides tools to convert Docbook source
+  into publication-quality PDF and HTML formats.
+  Publican is available in the standard Fedora <literal>yum</literal> repositories.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+<emphasis>Engagement-Journal</emphasis> provides a command-line tool (<literal>ej</literal>), attempting
+  to simplify document creation using Asciidoc and Publican.
+  <literal>ej</literal> automatically creates a buildable, template document and
+  places the document under Git version control.
+  Engagement-Journal is available from Github at the URL
+  listed below.
+</simpara>
 <variablelist>
 <varlistentry>
 <term>
@@ -68,6 +95,28 @@ Asciidoc cheat sheet
 </simpara>
 </listitem>
 </varlistentry>
+<varlistentry>
+<term>
+Publican
+</term>
+<listitem>
+<simpara>
+        <ulink url="https://fedorahosted.org/publican">https://fedorahosted.org/publican</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Engagement-Journal
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://github.com/jumanjiman/engagement-journal">http://github.com/jumanjiman/engagement-journal</ulink>
+</simpara>
+</listitem>
+</varlistentry>
 </variablelist>
+</listitem>
+</itemizedlist>
 </section>
 </appendix>
