@@ -43,5 +43,73 @@ Install Java from <ulink url="http://www.java.com/en">http://www.java.com/en</ul
 </listitem>
 </orderedlist>
 </section>
+<section id="_retrieve_source_code_for_eureka_streams">
+<title>Retrieve source code for Eureka Streams</title>
+<simpara>These steps use <literal>git</literal> to clone the Eureka Streams source code
+from Github.</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Become <literal>root</literal> with a login shell
+</simpara>
+<screen>sudo -i</screen>
+</listitem>
+<listitem>
+<simpara>
+Clone the repo to an appropriate location
+</simpara>
+<screen>pushd /opt
+git clone http://github.com/lmco/eurekastreams.git
+popd</screen>
+</listitem>
+</orderedlist>
+</section>
+<section id="_install_maven_dependencies">
+<title>Install Maven dependencies</title>
+<simpara>These steps install the Apache Shindig Social Connector using
+the source from the Eureka Streams repository.
+Eureka Streams depends on a specific version of Shindig
+that is currently unavailable in the Apache public repository.</simpara>
+<note><simpara>These steps assume you are still logged in as <literal>root</literal>.</simpara></note>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Change into the top level directory of the Eureka Streams local repo:
+</simpara>
+<screen>cd /opt/eurekastreams</screen>
+</listitem>
+<listitem>
+<simpara>
+Install Shindig
+</simpara>
+<screen>mvn install:install-file -Dfile=lib/shindig-common-3.3.jar -DgroupId=org.apache.shindig \
+        -DartifactId=shindig-common -Dversion=3.3 -Dpackaging=jar -DgeneratePom=true
+
+mvn install:install-file -Dfile=lib/shindig-features-3.3.jar -DgroupId=org.apache.shindig \
+        -DartifactId=shindig-features -Dversion=3.3 -Dpackaging=jar -DgeneratePom=true
+
+mvn install:install-file -Dfile=lib/shindig-gadgets-3.3.jar -DgroupId=org.apache.shindig \
+        -DartifactId=shindig-gadgets -Dversion=3.3 -Dpackaging=jar -DgeneratePom=true
+
+mvn install:install-file -Dfile=lib/shindig-server-3.3.war -DgroupId=org.apache.shindig \
+        -DartifactId=shindig-server -Dversion=3.3 -Dpackaging=war -DgeneratePom=true
+
+mvn install:install-file -Dfile=lib/shindig-social-api-3.3.jar -DgroupId=org.apache.shindig \
+        -DartifactId=shindig-social-api -Dversion=3.3 -Dpackaging=jar -DgeneratePom=true
+
+mvn install:install-file -Dfile=lib/shindig-common-3.3-tests.jar -DgroupId=org.apache.shindig \
+        -DartifactId=shindig-common -Dversion=3.3 -Dpackaging=test-jar -DgeneratePom=true
+
+mvn install:install-file -Dfile=lib/gwt-dnd-2.6.5.2.jar -DgroupId=com.google.code.gwt-dnd \
+        -DartifactId=gwt-dnd -Dversion=2.6.5.2 -Dpackaging=jar -DgeneratePom=true
+
+mvn install:install-file -Dfile=lib/carousel-0.6.1.jar -DgroupId=com.gwtyuicarousel \
+        -DartifactId=carousel -Dversion=0.6.1 -Dpackaging=jar -DgeneratePom=true
+
+mvn install:install-file -Dfile=lib/urlrewrite-3.2.0-beta.jar -DgroupId=org.tuckey \
+        -DartifactId=urlrewrite -Dversion=3.2.0-beta -Dpackaging=jar -DgeneratePom=true</screen>
+</listitem>
+</orderedlist>
+</section>
 </section>
 </chapter>
