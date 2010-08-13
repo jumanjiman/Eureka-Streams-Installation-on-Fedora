@@ -70,7 +70,9 @@ popd</screen>
 the source from the Eureka Streams repository.
 Eureka Streams depends on a specific version of Shindig
 that is currently unavailable in the Apache public repository.</simpara>
-<note><simpara>These steps assume you are still logged in as <literal>root</literal>.</simpara></note>
+<note><simpara>These steps assume you are still logged in as <literal>root</literal>.
+If you have the electronic copy of this document, simply copy
+and paste.</simpara></note>
 <orderedlist numeration="arabic">
 <listitem>
 <simpara>
@@ -82,32 +84,50 @@ Change into the top level directory of the Eureka Streams local repo:
 <simpara>
 Install Shindig
 </simpara>
-<screen>mvn install:install-file -Dfile=lib/shindig-common-3.3.jar -DgroupId=org.apache.shindig \
-        -DartifactId=shindig-common -Dversion=3.3 -Dpackaging=jar -DgeneratePom=true
+<screen>mvn install:install-file -Dfile=lib/shindig-common-3.3.jar \
+        -DgroupId=org.apache.shindig \
+        -DartifactId=shindig-common -Dversion=3.3 \
+        -Dpackaging=jar -DgeneratePom=true
 
-mvn install:install-file -Dfile=lib/shindig-features-3.3.jar -DgroupId=org.apache.shindig \
-        -DartifactId=shindig-features -Dversion=3.3 -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -Dfile=lib/shindig-features-3.3.jar \
+        -DgroupId=org.apache.shindig \
+        -DartifactId=shindig-features -Dversion=3.3 \
+        -Dpackaging=jar -DgeneratePom=true
 
-mvn install:install-file -Dfile=lib/shindig-gadgets-3.3.jar -DgroupId=org.apache.shindig \
-        -DartifactId=shindig-gadgets -Dversion=3.3 -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -Dfile=lib/shindig-gadgets-3.3.jar \
+        -DgroupId=org.apache.shindig \
+        -DartifactId=shindig-gadgets -Dversion=3.3 \
+        -Dpackaging=jar -DgeneratePom=true
 
-mvn install:install-file -Dfile=lib/shindig-server-3.3.war -DgroupId=org.apache.shindig \
-        -DartifactId=shindig-server -Dversion=3.3 -Dpackaging=war -DgeneratePom=true
+mvn install:install-file -Dfile=lib/shindig-server-3.3.war \
+        -DgroupId=org.apache.shindig \
+        -DartifactId=shindig-server -Dversion=3.3 \
+        -Dpackaging=war -DgeneratePom=true
 
-mvn install:install-file -Dfile=lib/shindig-social-api-3.3.jar -DgroupId=org.apache.shindig \
-        -DartifactId=shindig-social-api -Dversion=3.3 -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -Dfile=lib/shindig-social-api-3.3.jar \
+        -DgroupId=org.apache.shindig \
+        -DartifactId=shindig-social-api -Dversion=3.3 \
+        -Dpackaging=jar -DgeneratePom=true
 
-mvn install:install-file -Dfile=lib/shindig-common-3.3-tests.jar -DgroupId=org.apache.shindig \
-        -DartifactId=shindig-common -Dversion=3.3 -Dpackaging=test-jar -DgeneratePom=true
+mvn install:install-file -Dfile=lib/shindig-common-3.3-tests.jar \
+        -DgroupId=org.apache.shindig \
+        -DartifactId=shindig-common -Dversion=3.3 \
+        -Dpackaging=test-jar -DgeneratePom=true
 
-mvn install:install-file -Dfile=lib/gwt-dnd-2.6.5.2.jar -DgroupId=com.google.code.gwt-dnd \
-        -DartifactId=gwt-dnd -Dversion=2.6.5.2 -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -Dfile=lib/gwt-dnd-2.6.5.2.jar \
+        -DgroupId=com.google.code.gwt-dnd \
+        -DartifactId=gwt-dnd -Dversion=2.6.5.2 \
+        -Dpackaging=jar -DgeneratePom=true
 
-mvn install:install-file -Dfile=lib/carousel-0.6.1.jar -DgroupId=com.gwtyuicarousel \
-        -DartifactId=carousel -Dversion=0.6.1 -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -Dfile=lib/carousel-0.6.1.jar \
+        -DgroupId=com.gwtyuicarousel \
+        -DartifactId=carousel -Dversion=0.6.1 \
+        -Dpackaging=jar -DgeneratePom=true
 
-mvn install:install-file -Dfile=lib/urlrewrite-3.2.0-beta.jar -DgroupId=org.tuckey \
-        -DartifactId=urlrewrite -Dversion=3.2.0-beta -Dpackaging=jar -DgeneratePom=true</screen>
+mvn install:install-file -Dfile=lib/urlrewrite-3.2.0-beta.jar \
+        -DgroupId=org.tuckey \
+        -DartifactId=urlrewrite -Dversion=3.2.0-beta \
+        -Dpackaging=jar -DgeneratePom=true</screen>
 </listitem>
 </orderedlist>
 </section>
