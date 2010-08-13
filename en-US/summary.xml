@@ -36,7 +36,7 @@ Java
 </listitem>
 <listitem>
 <simpara>
-Maven
+Maven &gt;= 2.0.6
 </simpara>
 </listitem>
 <listitem>

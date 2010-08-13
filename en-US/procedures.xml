@@ -34,7 +34,10 @@ Install Git
 <simpara>
 Install Postgres client and server
 </simpara>
-<screen>sudo yum -y install postgresql postgresql-server</screen>
+<screen>sudo yum -y install postgresql postgresql-server
+sudo /sbin/service postgresql initdb
+sudo /sbin/service postgresql start
+sudo /sbin/chkconfig postgresql on</screen>
 </listitem>
 <listitem>
 <simpara>
@@ -248,6 +251,69 @@ install components, and report its final status:</simpara>
 [INFO] ------------------------------------------------------------------------</screen>
 </listitem>
 </orderedlist>
+</listitem>
+</orderedlist>
+</section>
+<section id="_compile_and_install_source">
+<title>Compile and install source</title>
+<simpara>These steps compile and install the Eureka Streams source code.</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Define some preferences
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Create <literal>/opt/eurekastreams/myprefs.sh</literal>
+</simpara>
+<screen>dbserver=127.0.0.1
+dbname=eurekastreams
+dbuser=eruekastreams
+export WEBPORT=80
+export GRWEBPORT=8080
+lucene_indexdir=/opt/lucene/index
+lucene_sourcedir=/opt/lucene/source
+cache="localhost:11211"
+baseurl="http://$(hostname):$WEBPORT"
+grbaseurl="http://$(hostname):$GRWEBPORT"</screen>
+</listitem>
+<listitem>
+<simpara>
+Check the file into Git
+</simpara>
+<screen>pushd /opt/eurekastreams
+git add myprefs.sh
+git commit -m 'save my preferences'</screen>
+</listitem>
+<listitem>
+<simpara>
+Source the above file and make directories
+</simpara>
+<screen>source /opt/eurekastreams/myprefs.sh
+mkdir -p $lucene_indexdir
+mkdir -p $lucene_sourcedir</screen>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Compile the application and test suite
+</simpara>
+<note><simpara>Use <literal>-DskipTests</literal> to avoid creating the test suite.</simpara></note>
+<screen>. /opt/eurekastreams/myprefs.sh
+mvn clean install -Dopenaccess-security        \
+        -Dbuild.db.dbname=$dbname                  \
+        -Dbuild.db.dbuser=$dbuser                  \
+        -Dbuild.web.baseurl=$baseurl               \
+        -Dbuild.web.grbaseurl=$grbaseurl           \
+        -Dbuild.db.servername=$dbserver            \
+        -Dbuild.lucene.indexdir=$lucene_indexdir   \
+        -Dbuild.lucene.sourcedir=$lucene_sourcedir \
+        -Dbuild.cache.servernames=$cache</screen>
+<simpara>When the above command completes, you should see output
+such as:</simpara>
+<screen>stub</screen>
 </listitem>
 </orderedlist>
 </section>
