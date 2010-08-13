@@ -5,25 +5,16 @@ include::variables.txt[]
 
 This chapter provides a high-level overview of the project.
 
-
-=== Related documents
-
-* Statement of Work (SOW) 
-
-
-
 === Technologies used
-
 
 This project incorporates the following technologies:
 
-include::technologies.d/redhat.txt[]
-
-//include::technologies.d/hp.txt[]
-
-//include::technologies.d/microsoft.txt[]
-
-
+* Fedora Linux 11
+* Eureka Streams
+* Memcached
+* Java
+* Maven
+* Postgres
 
 === Scope
 
