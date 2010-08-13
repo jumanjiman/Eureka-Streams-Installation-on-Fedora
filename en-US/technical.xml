@@ -1,5 +1,5 @@
-<chapter id="_technical_discussion">
-<title>Technical Discussion</title>
-<simpara>This section provides technical details about the packaging and deployment
-of Eureka Streams.</simpara>
+<chapter id="_technical_overview">
+<title>Technical Overview</title>
+<simpara>This section provides a high-level technical discussion about the
+packaging and deployment of Eureka Streams.</simpara>
 </chapter>
