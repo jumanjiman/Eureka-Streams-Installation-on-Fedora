@@ -1,10 +1,13 @@
 === Eureka Streams
 
-Eureka Streams official site::
-	http://www.eurekastreams.org
+Official site::
+	http://www.eurekastreams.org[]
 
-Github:: 
-	http://github.com/lmco/eurekastreams
+Official installation instructions::
+	http://www.eurekastreams.org/build-and-run[]
 
-Wikipedia::
-	http://en.wikipedia.org/wiki/Eureka_Streams
+Git repository:: 
+	http://github.com/lmco/eurekastreams[]
+
+Wikipedia article::
+	http://en.wikipedia.org/wiki/Eureka_Streams[]
