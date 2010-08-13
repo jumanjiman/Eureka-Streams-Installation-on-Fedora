@@ -3,11 +3,17 @@
 Official site::
 	http://www.eurekastreams.org[]
 
+Twitter::
+	http://twitter.com/discovereureka[]
+
 Official installation instructions::
 	http://www.eurekastreams.org/build-and-run[]
 
 Git repository:: 
 	http://github.com/lmco/eurekastreams[]
+
+Google groups::
+	http://groups.google.com/group/eureka-streams-dev[]
 
 Wikipedia article::
 	http://en.wikipedia.org/wiki/Eureka_Streams[]
