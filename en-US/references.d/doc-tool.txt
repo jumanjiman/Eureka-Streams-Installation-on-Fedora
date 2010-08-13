@@ -30,3 +30,6 @@ Engagement-Journal::
 
 Source for this document::
 	http://github.com/jumanjiman/Eureka-Streams-Installation-on-Fedora[]
+
+PDF version of this document::
+	http://github.com/jumanjiman/Eureka-Streams-Installation-on-Fedora/downloads[]
