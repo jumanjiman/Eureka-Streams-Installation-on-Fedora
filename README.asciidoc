@@ -4,10 +4,8 @@ This document is merely a stub text at this point.
 Hopefully I'll have plenty of time to work on it
 in the coming days.
 
-Once the document has enough substance to
-actually install Eureka Streams, I'll make
-PDF and HTML versions available for easy
-consumption.
+A PDF version is available on Github 
+http://github.com/jumanjiman/Eureka-Streams-Installation-on-Fedora/downloads[in the downloads section]
+for easy consumption.
 
-Currently it's available in Asciidoc source only.
 Feedback and contributions are welcome.
