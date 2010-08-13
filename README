@@ -1,0 +1,13 @@
+
+This document is currently built with:
+publican-1.6.2-0.fc11.noarch
+publican-fedora-1.5-0.fc11.noarch
+engagement-journal-0.4.8-3.fc11.noarch
+
+There is a bug in this version of publican*
+that causes excess hyphenation. The workaround
+is documented in https://bugzilla.redhat.com/show_bug.cgi?id=577068 .
+
+The workaround is to add one line to the fedora pdf.xsl file:
+  <xsl:param name="hyphenate.verbatim" select="0"/>
+
