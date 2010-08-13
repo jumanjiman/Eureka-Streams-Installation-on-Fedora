@@ -5,7 +5,7 @@
 <variablelist>
 <varlistentry>
 <term>
-Eureka Streams official site
+Official site
 </term>
 <listitem>
 <simpara>
@@ -15,7 +15,17 @@ Eureka Streams official site
 </varlistentry>
 <varlistentry>
 <term>
-Github
+Official installation instructions
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://www.eurekastreams.org/build-and-run">http://www.eurekastreams.org/build-and-run</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Git repository
 </term>
 <listitem>
 <simpara>
@@ -25,7 +35,7 @@ Github
 </varlistentry>
 <varlistentry>
 <term>
-Wikipedia
+Wikipedia article
 </term>
 <listitem>
 <simpara>
