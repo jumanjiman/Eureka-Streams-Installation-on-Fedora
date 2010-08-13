@@ -1,7 +1,0 @@
-==== Bash scripting resources
-
-Introduction to Bash scripting::
-	http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html
-
-Advanced Bash Scripting Guide::
-	http://freshmeat.net/projects/advancedbashscriptingguide
