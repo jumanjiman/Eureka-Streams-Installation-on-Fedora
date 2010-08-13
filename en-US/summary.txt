@@ -24,7 +24,7 @@ This project incorporates the following technologies:
 * Eureka Streams
 * Memcached
 * Java
-* Maven
+* Maven >= 2.0.6
 * Postgres
 
 
