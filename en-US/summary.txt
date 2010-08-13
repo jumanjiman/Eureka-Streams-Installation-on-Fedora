@@ -33,22 +33,13 @@ This project incorporates the following technologies:
 // This section describes issues encountered during delivery.
 // Emphasis should be on Cause-Effect-Workaround
 
-include::challenges.d/publican-versions.txt[]
 
-include::challenges.d/low-latency.txt[]
-
-include::challenges.d/dns.txt[]
-
-include::challenges.d/multicast.txt[]
+stub text
 
 
+=== Recommendations
 
-
-
-include::recommendations.d/recommendations.txt[]
-
-
-
+stub text
 
 === Reviewers
 
