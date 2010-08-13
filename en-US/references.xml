@@ -15,6 +15,16 @@ Official site
 </varlistentry>
 <varlistentry>
 <term>
+Twitter
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://twitter.com/discovereureka">http://twitter.com/discovereureka</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
 Official installation instructions
 </term>
 <listitem>
@@ -30,6 +40,16 @@ Git repository
 <listitem>
 <simpara>
         <ulink url="http://github.com/lmco/eurekastreams">http://github.com/lmco/eurekastreams</ulink>
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Google groups
+</term>
+<listitem>
+<simpara>
+        <ulink url="http://groups.google.com/group/eureka-streams-dev">http://groups.google.com/group/eureka-streams-dev</ulink>
 </simpara>
 </listitem>
 </varlistentry>
