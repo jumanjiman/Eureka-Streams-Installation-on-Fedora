@@ -5,6 +5,17 @@ include::variables.txt[]
 
 This chapter provides a high-level overview of the project.
 
+=== Scope
+
+This document provides detailed instructions for installing
+Eureka Streams on Fedora Linux. The instructions probably
+relate closely to the steps needed to install on other
+distributions, such as Red Hat Enterprise Linux and Centos.
+
+Installing Fedora Linux is well-documented and is beyond
+the scope of this document.
+
+
 === Technologies used
 
 This project incorporates the following technologies:
@@ -15,18 +26,6 @@ This project incorporates the following technologies:
 * Java
 * Maven
 * Postgres
-
-=== Scope
-
-include::scope.d/content.txt[]
-
-include::scope.d/ej.txt[]
-
-include::scope.d/ejadm.txt[]
-
-include::scope.d/other.txt[]
-
-
 
 
 === Challenges and Risks
