@@ -1,0 +1,10 @@
+=== Eurekastreams
+
+Eurekastreams public site::
+	http://www.eurekastreams.org
+
+Github:: 
+	http://github.com/lmco/eurekastreams
+
+Wikipedia::
+	http://en.wikipedia.org/wiki/Eureka_Streams
