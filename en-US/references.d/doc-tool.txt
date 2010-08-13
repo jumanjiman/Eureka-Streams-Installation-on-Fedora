@@ -1,0 +1,33 @@
+=== Documentation tools
+
+This document is available in Asciidoc source.
+Building the document requires three tools:
+
+* 'Asciidoc' provides a lightweight markup syntax
+  and a command-line tool to convert source content
+  into Docbook format. The Asciidoc package is available
+  in the standard Fedora `yum` repositories.
+
+* 'Publican' provides tools to convert Docbook source
+  into publication-quality PDF and HTML formats.
+  Publican is available in the standard Fedora `yum` repositories.
+
+* 'Engagement-Journal' provides a command-line tool (`ej`), attempting
+  to simplify document creation using Asciidoc and Publican.
+  `ej` automatically creates a buildable, template document and
+  places the document under Git version control.
+  Engagement-Journal is available from Github at the URL
+  listed below.
+
+Asciidoc website::
+	http://www.methods.co.nz/asciidoc/index.html[]
+
+Asciidoc cheat sheet::
+	http://powerman.name/doc/asciidoc[]
+
+Publican::
+	https://fedorahosted.org/publican[]
+
+Engagement-Journal::
+	http://github.com/jumanjiman/engagement-journal[]
+

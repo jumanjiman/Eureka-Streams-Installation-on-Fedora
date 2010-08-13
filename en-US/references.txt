@@ -4,7 +4,7 @@ Appendix: Reference Material
 
 include::references.d/eurekastreams.txt[]
 
-include::references.d/asciidoc.txt[]
+include::references.d/doc-tool.txt[]
 
 // vim: set syntax=asciidoc:
 // vim: set ts=4:
