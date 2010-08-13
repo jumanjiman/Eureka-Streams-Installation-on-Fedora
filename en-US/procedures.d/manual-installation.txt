@@ -35,6 +35,9 @@ sudo yum -y install git-all
 +
 ----
 sudo yum -y install postgresql postgresql-server
+sudo /sbin/service postgresql initdb
+sudo /sbin/service postgresql start
+sudo /sbin/chkconfig postgresql on
 ----
 
 . Install Java from http://www.java.com/en[]
