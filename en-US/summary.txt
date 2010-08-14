@@ -62,7 +62,24 @@ user-defined types and functions).
 // Emphasis should be on Cause-Effect-Workaround
 
 
-stub text
+==== Dynamic Maven projects
+
+It is difficult to produce a reliable, reproducible
+build for any project based on Maven. Even though the
+upstream Maven plugins are stable and buildable, the
+versions of dependencies are continually evolving.
+Thus a project may build today, but tomorrow it fails
+due to version incompatibilities.
+
+The Eureka Streams project provides a number of Maven
+dependencies within the Eureka Streams repository.
+These dependencies are the correct version, but Eureka
+Streams and its Maven plugins require additional
+dependencies, which are evolving.
+
+Perhaps a better approach would be to include a static
+version of every Maven dependency within a repository
+to ensure a reproducible build.
 
 
 === Recommendations
