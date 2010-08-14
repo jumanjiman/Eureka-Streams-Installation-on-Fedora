@@ -12,37 +12,54 @@ the scope of this document.</simpara>
 </section>
 <section id="_technologies_used">
 <title>Technologies used</title>
-<simpara>This project incorporates the following technologies:</simpara>
+<simpara>This project incorporates the following major technologies:</simpara>
 <itemizedlist>
-<listitem>
-<simpara>
-Fedora Linux 11
-</simpara>
-</listitem>
 <listitem>
 <simpara>
 Eureka Streams
 </simpara>
+<simpara>Lockheed Martin created this project to enhance
+internal collaboration among teams and individuals.</simpara>
+</listitem>
+<listitem>
+<simpara>
+Fedora Linux 11
+</simpara>
+<simpara>Red Hat and a worldwide community develop Fedora Linux
+as a parallel project with Red Hat Enterprise Linux.</simpara>
 </listitem>
 <listitem>
 <simpara>
 Memcached
 </simpara>
+<simpara>This provides in-memory caching and an API, improving
+performance for data-intensive applications.</simpara>
 </listitem>
 <listitem>
 <simpara>
 Java
 </simpara>
+<simpara>This fourth-generation language aims to provide
+cross-platform compatibility.</simpara>
 </listitem>
 <listitem>
 <simpara>
 Maven &gt;= 2.0.6
 </simpara>
+<simpara>Apache Maven is a software project management and
+comprehension tool. Based on the concept of a project
+object model (POM), Maven can manage a project&#8217;s build,
+reporting and documentation from a central piece of
+information.</simpara>
 </listitem>
 <listitem>
 <simpara>
 Postgres
 </simpara>
+<simpara>PostgreSQL is an advanced Object-Relational database
+management system (DBMS) that supports almost all SQL
+constructs (including transactions, subselects and
+user-defined types and functions).</simpara>
 </listitem>
 </itemizedlist>
 </section>
