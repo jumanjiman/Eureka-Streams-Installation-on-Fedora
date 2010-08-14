@@ -1,14 +1,14 @@
 
-=== Manual Installation
+=== Build and run a development installation
 
-This installation is based on the instructions at
+These steps install numerous dependencies required
+to build and run a development installation of Eureka Streams.
+This procedure is based on the instructions at
 http://www.eurekastreams.org/build-and-run/[].
 
 ==== Install prerequisite packages
 
-These steps install numerous dependencies.
-
-NOTE: These steps use `sudo` to run commands as `root`.
+These steps use `sudo` to run commands as `root`.
 You could also run `sudo -i` to become `root`.
 
 . Install `maven2`

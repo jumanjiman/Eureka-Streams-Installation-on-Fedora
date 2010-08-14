@@ -3,5 +3,5 @@ include::variables.txt[]
 
 == Runbook Procedures
 
-include::procedures.d/manual-installation.txt[]
+include::procedures.d/build.txt[]
 
