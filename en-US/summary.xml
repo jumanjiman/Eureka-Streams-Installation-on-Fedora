@@ -3,8 +3,20 @@
 <simpara>This chapter provides a high-level overview of the project.</simpara>
 <section id="_scope">
 <title>Scope</title>
-<simpara>This document provides detailed instructions for installing
-Eureka Streams on Fedora Linux. The instructions probably
+<simpara>This document provides detailed instructions to:</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Build Eureka Streams on a development workstation
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Package Eureka Streams for production use
+</simpara>
+</listitem>
+</itemizedlist>
+<simpara>The instructions probably
 relate closely to the steps needed to install on other
 distributions, such as Red Hat Enterprise Linux and Centos.</simpara>
 <simpara>Installing Fedora Linux is well-documented and is beyond

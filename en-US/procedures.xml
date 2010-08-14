@@ -1,14 +1,15 @@
 <chapter id="_runbook_procedures">
 <title>Runbook Procedures</title>
-<section id="_manual_installation">
-<title>Manual Installation</title>
-<simpara>This installation is based on the instructions at
+<section id="_build_and_run_a_development_installation">
+<title>Build and run a development installation</title>
+<simpara>These steps install numerous dependencies required
+to build and run a development installation of Eureka Streams.
+This procedure is based on the instructions at
 <ulink url="http://www.eurekastreams.org/build-and-run/">http://www.eurekastreams.org/build-and-run/</ulink>.</simpara>
 <section id="_install_prerequisite_packages">
 <title>Install prerequisite packages</title>
-<simpara>These steps install numerous dependencies.</simpara>
-<note><simpara>These steps use <literal>sudo</literal> to run commands as <literal>root</literal>.
-You could also run <literal>sudo -i</literal> to become <literal>root</literal>.</simpara></note>
+<simpara>These steps use <literal>sudo</literal> to run commands as <literal>root</literal>.
+You could also run <literal>sudo -i</literal> to become <literal>root</literal>.</simpara>
 <orderedlist numeration="arabic">
 <listitem>
 <simpara>
