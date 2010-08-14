@@ -7,8 +7,12 @@ This chapter provides a high-level overview of the project.
 
 === Scope
 
-This document provides detailed instructions for installing
-Eureka Streams on Fedora Linux. The instructions probably
+This document provides detailed instructions to:
+
+* Build Eureka Streams on a development workstation
+* Package Eureka Streams for production use
+
+The instructions probably
 relate closely to the steps needed to install on other
 distributions, such as Red Hat Enterprise Linux and Centos.
 
