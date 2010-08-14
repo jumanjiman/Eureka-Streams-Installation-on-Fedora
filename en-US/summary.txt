@@ -18,14 +18,42 @@ the scope of this document.
 
 === Technologies used
 
-This project incorporates the following technologies:
+This project incorporates the following major technologies:
+
+* Eureka Streams
++
+Lockheed Martin created this project to enhance
+internal collaboration among teams and individuals.
 
 * Fedora Linux 11
-* Eureka Streams
++
+Red Hat and a worldwide community develop Fedora Linux
+as a parallel project with Red Hat Enterprise Linux.
+
 * Memcached
++
+This provides in-memory caching and an API, improving
+performance for data-intensive applications.
+
 * Java
++
+This fourth-generation language aims to provide
+cross-platform compatibility.
+
 * Maven >= 2.0.6
++
+Apache Maven is a software project management and
+comprehension tool. Based on the concept of a project
+object model (POM), Maven can manage a project's build,
+reporting and documentation from a central piece of
+information.
+
 * Postgres
++
+PostgreSQL is an advanced Object-Relational database
+management system (DBMS) that supports almost all SQL
+constructs (including transactions, subselects and
+user-defined types and functions).
 
 
 === Challenges and Risks
