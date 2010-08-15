@@ -1,10 +1,8 @@
 == How to install Eureka Streams on Fedora
 
 This document is a work-in-process.
-Currently it includes steps to install and compile Eureka Streams
-plus dependencies, up to and including building the database.
-Unfortunately, the DB scripts are puking with an error.
-The error and relevant output are included in the doc.
+Currently it includes steps to compile and install Eureka Streams
+on a development workstation using Fedora 13.
 
 A PDF version is available on Github 
 http://github.com/jumanjiman/Eureka-Streams-Installation-on-Fedora/downloads[in the downloads section]
