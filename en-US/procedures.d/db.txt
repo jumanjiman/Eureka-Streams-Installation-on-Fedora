@@ -165,3 +165,15 @@ The log output from the above commands spews the following:
 ----
 include::eurekastreams20100815-1306.log[]
 ----
++
+The most interesting part of the spew is this snippet:
++
+----
+psql:/home/eurekastreams/tmp/2010-08-15-130638.sql:4518: ERROR: syntax error at or near "DATA" LINE 1: ...LE
+----
++
+The file `/home/eurekastreams/tmp/2010-08-15-130638.sql`, line 4518, contains:
++
+----
+ALTER TABLE systemsettings ALTER COLUMN termsofservice SET DATA TYPE character varying(1000);
+----
