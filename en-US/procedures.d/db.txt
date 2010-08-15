@@ -80,6 +80,7 @@ CREATE DATABASE
 ----
 +
 The above command should show output similar to the following for a fresh installation:
++
 ----
                                List of roles
   Role name | Superuser | Create role | Create DB | Connections | Member of 
