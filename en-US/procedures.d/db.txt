@@ -154,7 +154,7 @@ su - eurekastreams
 ----
 . /opt/eurekastreams/myprefs
 pushd /opt/eurekastreams/web/target/classes/db/scripts
-./dev_reset_db.sh $dbname $dbuser $baseurl
+./dev_reset_db.sh $dbname $dbuser localhost
 ----
 +
 NOTE: Something is wrong because the Eureka Streams SQL scripts
