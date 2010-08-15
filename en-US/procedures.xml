@@ -855,8 +855,19 @@ puke with a syntax error.</simpara></note>
 2010-08-15-13:06:55 [ERROR] A problem occurred with the application of the latest scripts. Your database has not been updated. See the log file for details: /home/eurekastreams/logs/eurekastreams20100815-1306.log</screen>
 <simpara>The most interesting part of the spew is this snippet:</simpara>
 <screen>psql:/home/eurekastreams/tmp/2010-08-15-130638.sql:4518: ERROR: syntax error at or near "DATA" LINE 1: ...LE</screen>
-<simpara>The file <literal>/home/eurekastreams/tmp/2010-08-15-130638.sql</literal>, line 4518, contains:</simpara>
-<screen>ALTER TABLE systemsettings ALTER COLUMN termsofservice SET DATA TYPE character varying(1000);</screen>
+<simpara>The file <literal>/home/eurekastreams/tmp/2010-08-15-130638.sql</literal>, line 4518, contains an <literal>ALTER TABLE</literal>
+statement as shown here with several lines of context:</simpara>
+<screen>insert into db_version (major, minor, patch, scriptname, description) values (0, 8, '0010', 'U0010TermsOfServiceSizeIncrease.sql', 'updates systemsettings table to increase column size for terms of service text.');
+
+ALTER TABLE systemsettings ALTER COLUMN termsofservice SET DATA TYPE character varying(1000);
+
+-- From /opt/eurekastreams/web/target/classes/db/scripts/../migration/0/9/U0000VersionBaseline.sql
+
+--
+-- Set database version to 0.9.0000
+--
+
+insert into db_version (major, minor, patch, scriptname, description) values (0, 9, '0000', 'U0000VersionBaseline.sql', 'Set baseline to 0.9.0000');</screen>
 </listitem>
 </orderedlist>
 </listitem>
