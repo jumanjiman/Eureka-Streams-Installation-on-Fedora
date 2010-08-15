@@ -89,11 +89,7 @@ A default installation will probably reflect the following output:
 CREATE DATABASE eurekastreams;
 ----
 +
-The following output indicates success:
-+
-----
-CREATE DATABASE
-----
+Postgres should respond with `CREATE DATABASE` to indicate success.
 
 . Create a Postgres user and password
 
@@ -119,11 +115,7 @@ The above command should show output similar to the following for a fresh instal
 CREATE USER eurekastreams WITH PASSWORD 'somepassword' CREATEDB SUPERUSER;
 ----
 +
-Successful account creation is indicated by the following output:
-+
-----
-CREATE ROLE
-----
+Postgres should respond with `CREATE ROLE` to indicate success.
 
 .. Grant privileges to the `eurekastreams` user
 +
@@ -131,11 +123,7 @@ CREATE ROLE
 GRANT ALL PRIVILEGES ON DATABASE eurekastreams to eurekastreams;
 ----
 +
-Successful permissions is indicated by the following out:
-+
-----
-GRANT
-----
+Postgres should respond with `GRANT` to indicate success.
 
 .. Quit `psql`
 +
