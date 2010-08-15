@@ -10,24 +10,7 @@ include::install-prereqs.txt[]
 
 include::install-maven.txt[]
 
-==== Retrieve source code for Eureka Streams
-
-These steps use `git` to clone the Eureka Streams source code 
-from Github.
-
-. Become `root` with a login shell
-+
-----
-sudo -i
-----
-
-. Clone the repo to an appropriate location
-+
-----
-pushd /opt
-git clone http://github.com/lmco/eurekastreams.git
-popd
-----
+include::eurekastreams-source.txt[]
 
 ==== Install Maven dependencies
 
