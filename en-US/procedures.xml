@@ -41,6 +41,173 @@ Install Java from <ulink url="http://www.java.com/en">http://www.java.com/en</ul
 </listitem>
 </orderedlist>
 </section>
+<section id="_install_and_configure_maven">
+<title>Install and configure Maven</title>
+<simpara>These steps install Maven2 using the binary distribution
+from the Apache web site.</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Download Maven2
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Open <ulink url="http://maven.apache.org/download.html">http://maven.apache.org/download.html</ulink> in your browser
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Click on the link for the current version of Maven2 to
+see a list of download mirrors
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+The top of the page suggests a mirror based on your IP
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Download the tarball using your browser, <literal>curl</literal>, or <literal>wget</literal>
+</simpara>
+<screen>url=http://apache.inetbridge.net/maven/binaries/apache-maven-2.2.1-bin.tar.gz
+wget -P /tmp $url</screen>
+</listitem>
+<listitem>
+<simpara>
+List the contents of the tarball
+</simpara>
+<screen>tar tzf apache-maven-2.2.1-bin.tar.gz</screen>
+<simpara>With my download, the tarball contains:</simpara>
+<screen>apache-maven-2.2.1/boot/classworlds-1.1.jar
+apache-maven-2.2.1/LICENSE.txt
+apache-maven-2.2.1/NOTICE.txt
+apache-maven-2.2.1/README.txt
+apache-maven-2.2.1/bin/m2.conf
+apache-maven-2.2.1/bin/mvn.bat
+apache-maven-2.2.1/bin/mvnDebug.bat
+apache-maven-2.2.1/bin/mvn
+apache-maven-2.2.1/bin/mvnDebug
+apache-maven-2.2.1/conf/
+apache-maven-2.2.1/conf/settings.xml
+apache-maven-2.2.1/lib/maven-2.2.1-uber.jar</screen>
+</listitem>
+<listitem>
+<simpara>
+Optionally, download the PDF documentation for offline viewing
+</simpara>
+<screen>url=http://maven.apache.org/apache-maven.pdf
+wget -P ~/ $url</screen>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Extract the tarball into <literal>/usr/local</literal>
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Become <literal>root</literal>
+</simpara>
+<screen>sudo -i</screen>
+<note><simpara>If you have not setup <literal>/etc/sudoers</literal>, use <literal>su -</literal></simpara></note>
+</listitem>
+<listitem>
+<simpara>
+Extract the tarball
+</simpara>
+<screen>dest=/usr/local
+src=/tmp/apache-maven-2.2.1-bin.tar.gz
+tar xvzf $src -C $dest</screen>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Update the <literal>$PATH</literal> environment variable
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+As <literal>root</literal>, create <literal>/etc/profile.d/apache-maven.sh</literal>
+</simpara>
+<screen># add extra paths to PATH environment var
+export M2_HOME=/usr/local/apache-maven-2.2.1
+export M2=$M2_HOME/bin
+paths="
+$M2
+"
+for path in ${paths}; do
+  if ! echo ${PATH//:/\\n} | /bin/egrep "^${path}$" ; then
+    PATH=${PATH}:${path}
+  fi
+done
+
+# optionally set maven options
+#MAVEN_OPTS="-Xms256m -Xmx512m"</screen>
+</listitem>
+<listitem>
+<simpara>
+As yourself, source the new path and confirm there are no typos
+</simpara>
+<screen>. /etc/profile.d/apache-maven.sh
+echo $M2_HOME
+echo $M2
+echo $PATH
+which mvn</screen>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Update <literal>$JAVA_HOME</literal>
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Determine which Java your system is using
+</simpara>
+<screen>alternatives --config java</screen>
+<simpara>This will display something similar to:</simpara>
+<screen>There are 4 programs which provide 'java'.
+
+  Selection    Command
+ -----------------------------------------------
+   1           /usr/lib/jvm/jre-1.6.0-openjdk/bin/java
+   2           /usr/lib/jvm/jre-1.5.0-gcj/bin/java
+   3           /usr/java/jre1.6.0_16/bin/java
+*+ 4           /usr/java/latest/bin/java
+
+Enter to keep the current selection[+], or type selection number:</screen>
+<simpara>Press <literal>Enter</literal> to avoid changes.</simpara>
+</listitem>
+<listitem>
+<simpara>
+As <literal>root</literal>, create <literal>/etc/profile.d/java-home.sh</literal>
+</simpara>
+<screen>_java=$(readlink /etc/alternatives/java)
+export JAVA_HOME=${_java%%bin*}
+export PATH=$PATH:$JAVA_HOME/bin</screen>
+</listitem>
+<listitem>
+<simpara>
+Source the above file and confirm <literal>JAVA_HOME</literal>
+is correctly set
+</simpara>
+<screen>. /etc/profile.d/java-home.sh
+echo $JAVA_HOME</screen>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Optionally, create <literal>~/.m2/settings.xml</literal> per <ulink url="http://maven.apache.org/settings.html">http://maven.apache.org/settings.html</ulink>
+</simpara>
+</listitem>
+</orderedlist>
+</section>
 <section id="_retrieve_source_code_for_eureka_streams">
 <title>Retrieve source code for Eureka Streams</title>
 <simpara>These steps use <literal>git</literal> to clone the Eureka Streams source code
