@@ -1,5 +1,5 @@
 
-APPENDIX: Postgres Versions
+Appendix: Postgres Versions
 ===========================
 
 The Eureka Streams SQL scripts use syntax specific 
