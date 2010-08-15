@@ -156,35 +156,4 @@ su - eurekastreams
 pushd /opt/eurekastreams/web/target/classes/db/scripts
 ./dev_reset_db.sh $dbname $dbuser localhost
 ----
-+
-NOTE: Something is wrong because the Eureka Streams SQL scripts
-puke with a syntax error.
-+
-The most interesting part of the spew is this snippet:
-+
-----
-psql:/home/eurekastreams/tmp/2010-08-15-130638.sql:4518: ERROR: syntax error at or near "DATA" LINE 1: ...LE
-----
-+
-The file `/home/eurekastreams/tmp/2010-08-15-130638.sql`, line 4518, contains an `ALTER TABLE`
-statement as shown here with several lines of context:
-+
-----
-insert into db_version (major, minor, patch, scriptname, description) values (0, 8, '0010', 'U0010TermsOfServiceSizeIncrease.sql', 'updates systemsettings table to increase column size for terms of service text.');
 
-ALTER TABLE systemsettings ALTER COLUMN termsofservice SET DATA TYPE character varying(1000);
-
--- From /opt/eurekastreams/web/target/classes/db/scripts/../migration/0/9/U0000VersionBaseline.sql
-
---
--- Set database version to 0.9.0000
---
-
-insert into db_version (major, minor, patch, scriptname, description) values (0, 9, '0000', 'U0000VersionBaseline.sql', 'Set baseline to 0.9.0000');
-----
-+
-The full spew is shown here:
-+
-----
-include::eurekastreams20100815-1306.log[]
-----
