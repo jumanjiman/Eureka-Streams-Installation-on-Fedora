@@ -159,3 +159,9 @@ pushd /opt/eurekastreams/web/target/classes/db/scripts
 +
 NOTE: Something is wrong because the Eureka Streams SQL scripts
 puke with a syntax error.
++
+The log output from the above commands spews the following:
++
+----
+include::eurekastreams20100815-1306.log[]
+----
