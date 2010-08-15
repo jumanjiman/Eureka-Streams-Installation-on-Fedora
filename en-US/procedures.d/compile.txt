@@ -1,7 +1,7 @@
 
-==== Compile and install source
+==== Compile Eureka Streams
 
-These steps compile and install the Eureka Streams source code.
+These steps compile the Eureka Streams source code and install binaries.
 
 . Define some preferences
 
@@ -38,7 +38,7 @@ mkdir -p $lucene_sourcedir
 
 . Compile the application and test suite
 +
-NOTE: Use `-DskipTests` to avoid creating the test suite.
+NOTE: Optionally, append `-DskipTests` to avoid creating the test suite.
 +
 ----
 . /opt/eurekastreams/myprefs.sh
@@ -53,7 +53,8 @@ mvn clean install -Dopenaccess-security        \
 	-Dbuild.cache.servernames=$cache
 ----
 +
-When the above command completes, you should see output
+The above command will take a while to complete.
+When it does finish, you should see output
 such as:
 +
 ----
