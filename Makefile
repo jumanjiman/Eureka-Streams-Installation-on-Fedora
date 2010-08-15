@@ -12,6 +12,7 @@ asciidoc: clean
 	@asciidoc -s -d book -b docbook -f /etc/asciidoc/redhatgps.conf $(XML_LANG)/procedures.txt
 	@asciidoc -s -d book -b docbook -f /etc/asciidoc/redhatgps.conf $(XML_LANG)/technical.txt
 	@asciidoc -s -d book -b docbook -f /etc/asciidoc/redhatgps.conf $(XML_LANG)/references.txt
+	@asciidoc -s -d book -b docbook -f /etc/asciidoc/redhatgps.conf $(XML_LANG)/postgres-versions.txt
 
 pdf: asciidoc
 	@echo
