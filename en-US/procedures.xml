@@ -418,9 +418,9 @@ install components, and report its final status:</simpara>
 </listitem>
 </orderedlist>
 </section>
-<section id="_compile_and_install_source">
-<title>Compile and install source</title>
-<simpara>These steps compile and install the Eureka Streams source code.</simpara>
+<section id="_compile_eureka_streams">
+<title>Compile Eureka Streams</title>
+<simpara>These steps compile the Eureka Streams source code and install binaries.</simpara>
 <orderedlist numeration="arabic">
 <listitem>
 <simpara>
@@ -464,7 +464,7 @@ mkdir -p $lucene_sourcedir</screen>
 <simpara>
 Compile the application and test suite
 </simpara>
-<note><simpara>Use <literal>-DskipTests</literal> to avoid creating the test suite.</simpara></note>
+<note><simpara>Optionally, append <literal>-DskipTests</literal> to avoid creating the test suite.</simpara></note>
 <screen>. /opt/eurekastreams/myprefs.sh
 mvn clean install -Dopenaccess-security        \
         -Dbuild.db.dbname=$dbname                  \
@@ -475,9 +475,28 @@ mvn clean install -Dopenaccess-security        \
         -Dbuild.lucene.indexdir=$lucene_indexdir   \
         -Dbuild.lucene.sourcedir=$lucene_sourcedir \
         -Dbuild.cache.servernames=$cache</screen>
-<simpara>When the above command completes, you should see output
+<simpara>The above command will take a while to complete.
+When it does finish, you should see output
 such as:</simpara>
-<screen>stub output</screen>
+<screen>[INFO]
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] ------------------------------------------------------------------------
+[INFO] Eureka Streams Parent ................................. SUCCESS [2:41.986s]
+[INFO] Eureka Streams Server ................................. SUCCESS [8:03.509s]
+[INFO] Eureka Streams Shared Resources ....................... SUCCESS [53.290s]
+[INFO] Eureka Streams Task Queue Processor ................... SUCCESS [1:16.774s]
+[INFO] Eureka Streams Database Resources ..................... SUCCESS [0.579s]
+[INFO] Eureka Streams Web .................................... SUCCESS [6:07.956s]
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 19 minutes 4 seconds
+[INFO] Finished at: Sun Aug 15 11:09:27 EDT 2010
+[INFO] Final Memory: 94M/251M
+[INFO] ------------------------------------------------------------------------</screen>
 </listitem>
 </orderedlist>
 </section>
