@@ -28,7 +28,8 @@ sudo yum -y install postgresql postgresql-server
 .. Adjust authentication requirements
 +
 ----
-sudo sed -i 's/\(^[^#].*\)ident sameuser/\1 trust sameuser/' /var/lib/pgsql/data/pg_hba.conf
+file=/var/lib/pgsql/data/pg_hba.conf
+sudo sed -i 's/\(^[^#].*\)ident sameuser/\1 trust sameuser/' $file
 ----
 
 .. Start the database
