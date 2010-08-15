@@ -25,55 +25,79 @@ the scope of this document.</simpara>
 <section id="_technologies_used">
 <title>Technologies used</title>
 <simpara>This project incorporates the following major technologies:</simpara>
-<itemizedlist>
-<listitem>
-<simpara>
+<variablelist>
+<varlistentry>
+<term>
 Eureka Streams
-</simpara>
-<simpara>Lockheed Martin created this project to enhance
-internal collaboration among teams and individuals.</simpara>
-</listitem>
+</term>
 <listitem>
 <simpara>
+Lockheed Martin created this project to enhance
+internal collaboration among teams and individuals.
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
 Fedora Linux 11
-</simpara>
-<simpara>Red Hat and a worldwide community develop Fedora Linux
-as a parallel project with Red Hat Enterprise Linux.</simpara>
-</listitem>
+</term>
 <listitem>
 <simpara>
+Red Hat and a worldwide community develop Fedora Linux
+as a parallel project with Red Hat Enterprise Linux.
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
 Memcached
-</simpara>
-<simpara>This provides in-memory caching and an API, improving
-performance for data-intensive applications.</simpara>
-</listitem>
+</term>
 <listitem>
 <simpara>
+This provides in-memory caching and an API, improving
+performance for data-intensive applications.
+</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
 Java
-</simpara>
-<simpara>This fourth-generation language aims to provide
-cross-platform compatibility.</simpara>
-</listitem>
+</term>
 <listitem>
 <simpara>
-Maven &gt;= 2.0.6
+This fourth-generation language aims to provide
+cross-platform compatibility.
 </simpara>
-<simpara>Apache Maven is a software project management and
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Maven &gt;= 2.0.6
+</term>
+<listitem>
+<simpara>
+Apache Maven is a software project management and
 comprehension tool. Based on the concept of a project
 object model (POM), Maven can manage a project&#8217;s build,
 reporting and documentation from a central piece of
-information.</simpara>
+information.
+</simpara>
 </listitem>
+</varlistentry>
+<varlistentry>
+<term>
+Postgres
+</term>
 <listitem>
 <simpara>
-Postgres
-</simpara>
-<simpara>PostgreSQL is an advanced Object-Relational database
+PostgreSQL is an advanced Object-Relational database
 management system (DBMS) that supports almost all SQL
 constructs (including transactions, subselects and
-user-defined types and functions).</simpara>
+user-defined types and functions).
+</simpara>
 </listitem>
-</itemizedlist>
+</varlistentry>
+</variablelist>
 </section>
 <section id="_challenges_and_risks">
 <title>Challenges and Risks</title>
