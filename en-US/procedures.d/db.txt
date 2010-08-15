@@ -1,0 +1,126 @@
+
+==== Build database
+
+These steps setup a Postgres database for Eureka Streams.
+You should be `root` for the following steps.
+
+. Confirm Postgres installation
+
+.. Ensure Postgres is running
++
+----
+service postgresql status
+----
++
+Example output:
++
+----
+postmaster (pid 3063 3062 3061 3060 2994 2375) is running...
+----
+
+.. Ensure Postgres is running on the expected port
++
+----
+netstat -tulpn | grep postmaster
+----
++
+Expected output:
++
+----
+tcp  0  0 127.0.0.1:5432     0.0.0.0:*    LISTEN      2375/postmaster
+----
++
+This shows that Postgres is listening on port 5432 of the loopback interface,
+as expected.
+
+. Create a Postgres database
+.. As `root`, become the `postgres` user and start the Postgres client
++
+----
+su - postgres
+psql
+----
+
+.. At the `psql` prompt (looks like `postgres=#`), list existing databases
++
+----
+\l
+----
++
+A default installation will probably reflect the following output:
++
+----
+          List of databases
+      Name      |  Owner   | Encoding 
+ ---------------+----------+----------
+  postgres      | postgres | UTF8
+  template0     | postgres | UTF8
+  template1     | postgres | UTF8
+ (4 rows)
+----
+
+.. Create a database as specified in `/opt/eurekastreams/myprefs.sh`
++
+----
+CREATE DATABASE eurekastreams;
+----
++
+The following output indicates success:
++
+----
+CREATE DATABASE
+----
+
+. Create a Postgres user and password
+.. At the `psql` prompt (looks like `postgres=#`), list existing users
++
+----
+\du
+----
++
+The above command should show output similar to the following for a fresh installation:
+----
+                               List of roles
+  Role name | Superuser | Create role | Create DB | Connections | Member of 
+ -----------+-----------+-------------+-----------+-------------+-----------
+  postgres  | yes       | yes         | yes       | no limit    | {}
+ (1 row)
+----
+
+.. Create the user as defined in `/opt/eurekastreams/myprefs.sh`
++
+----
+CREATE USER eurekastreams WITH PASSWORD 'somepassword';
+----
++
+Successful account creation is indicated by the following output:
++
+----
+CREATE ROLE
+----
+
+.. Grant privileges to the `eurekastreams` user
++
+----
+GRANT ALL PRIVILEGES ON DATABASE eurekastreams to eurekastreams;
+----
++
+Successful permissions is indicated by the following out:
++
+----
+GRANT
+----
+
+.. Quit `psql`
++
+----
+\q
+----
+
+. Populate the database
++
+----
+. /opt/eurekastreams/myprefs
+pushd /opt/eurekastreams/web/target/classes/db/scripts
+./dev_reset_db.sh $dbname $dbuser $baseurl
+----
