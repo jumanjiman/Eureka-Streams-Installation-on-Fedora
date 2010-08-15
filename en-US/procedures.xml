@@ -500,5 +500,130 @@ such as:</simpara>
 </listitem>
 </orderedlist>
 </section>
+<section id="_build_database">
+<title>Build database</title>
+<simpara>These steps setup a Postgres database for Eureka Streams.
+You should be <literal>root</literal> for the following steps.</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Confirm Postgres installation
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Ensure Postgres is running
+</simpara>
+<screen>service postgresql status</screen>
+<simpara>Example output:</simpara>
+<screen>postmaster (pid 3063 3062 3061 3060 2994 2375) is running...</screen>
+</listitem>
+<listitem>
+<simpara>
+Ensure Postgres is running on the expected port
+</simpara>
+<screen>netstat -tulpn | grep postmaster</screen>
+<simpara>Expected output:</simpara>
+<screen>tcp  0  0 127.0.0.1:5432     0.0.0.0:*    LISTEN      2375/postmaster</screen>
+<simpara>This shows that Postgres is listening on port 5432 of the loopback interface,
+as expected.</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Create a Postgres database
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+As <literal>root</literal>, become the <literal>postgres</literal> user and start the Postgres client
+</simpara>
+<screen>su - postgres
+psql</screen>
+</listitem>
+<listitem>
+<simpara>
+At the <literal>psql</literal> prompt (looks like <literal>postgres=#</literal>), list existing databases
+</simpara>
+<screen>\l</screen>
+<simpara>A default installation will probably reflect the following output:</simpara>
+<screen>          List of databases
+      Name      |  Owner   | Encoding
+ ---------------+----------+----------
+  postgres      | postgres | UTF8
+  template0     | postgres | UTF8
+  template1     | postgres | UTF8
+ (4 rows)</screen>
+</listitem>
+<listitem>
+<simpara>
+Create a database as specified in <literal>/opt/eurekastreams/myprefs.sh</literal>
+</simpara>
+<screen>CREATE DATABASE eurekastreams;</screen>
+<simpara>The following output indicates success:</simpara>
+<screen>CREATE DATABASE</screen>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Create a Postgres user and password
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+At the <literal>psql</literal> prompt (looks like <literal>postgres=#</literal>), list existing users
+</simpara>
+<screen>\du</screen>
+<simpara>The above command should show output similar to the following for a fresh installation:</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+</orderedlist>
+<screen>                               List of roles
+  Role name | Superuser | Create role | Create DB | Connections | Member of
+ -----------+-----------+-------------+-----------+-------------+-----------
+  postgres  | yes       | yes         | yes       | no limit    | {}
+ (1 row)</screen>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Create the user as defined in <literal>/opt/eurekastreams/myprefs.sh</literal>
+</simpara>
+<screen>CREATE USER eurekastreams WITH PASSWORD 'somepassword';</screen>
+<simpara>Successful account creation is indicated by the following output:</simpara>
+<screen>CREATE ROLE</screen>
+</listitem>
+<listitem>
+<simpara>
+Grant privileges to the <literal>eurekastreams</literal> user
+</simpara>
+<screen>GRANT ALL PRIVILEGES ON DATABASE eurekastreams to eurekastreams;</screen>
+<simpara>Successful permissions is indicated by the following out:</simpara>
+<screen>GRANT</screen>
+</listitem>
+<listitem>
+<simpara>
+Quit <literal>psql</literal>
+</simpara>
+<screen>\q</screen>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Populate the database
+</simpara>
+<screen>. /opt/eurekastreams/myprefs
+pushd /opt/eurekastreams/web/target/classes/db/scripts
+./dev_reset_db.sh $dbname $dbuser $baseurl</screen>
+</listitem>
+</orderedlist>
+</listitem>
+</orderedlist>
+</section>
+</section>
+<section id="_build_and_install_an_rpm_for_production_use">
+<title>Build and install an RPM for production use</title>
+<simpara>stub text</simpara>
 </section>
 </chapter>
