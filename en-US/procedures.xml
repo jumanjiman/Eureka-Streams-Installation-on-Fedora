@@ -13,12 +13,6 @@ You could also run <literal>sudo -i</literal> to become <literal>root</literal>.
 <orderedlist numeration="arabic">
 <listitem>
 <simpara>
-Install <literal>maven2</literal>
-</simpara>
-<screen>sudo yum -y install maven2 maven2-manual</screen>
-</listitem>
-<listitem>
-<simpara>
 Install <literal>memcached</literal>
 </simpara>
 <screen>sudo yum -y install memcached
@@ -314,7 +308,7 @@ mvn clean install -Dopenaccess-security        \
         -Dbuild.cache.servernames=$cache</screen>
 <simpara>When the above command completes, you should see output
 such as:</simpara>
-<screen>stub</screen>
+<screen>stub output</screen>
 </listitem>
 </orderedlist>
 </section>
