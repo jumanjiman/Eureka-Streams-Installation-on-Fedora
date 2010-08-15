@@ -596,16 +596,12 @@ At the <literal>psql</literal> prompt (looks like <literal>postgres=#</literal>)
 </simpara>
 <screen>\du</screen>
 <simpara>The above command should show output similar to the following for a fresh installation:</simpara>
-</listitem>
-</orderedlist>
-</listitem>
-</orderedlist>
 <screen>                               List of roles
   Role name | Superuser | Create role | Create DB | Connections | Member of
  -----------+-----------+-------------+-----------+-------------+-----------
   postgres  | yes       | yes         | yes       | no limit    | {}
  (1 row)</screen>
-<orderedlist numeration="loweralpha">
+</listitem>
 <listitem>
 <simpara>
 Create the user as defined in <literal>/opt/eurekastreams/myprefs.sh</literal>
@@ -627,7 +623,9 @@ Grant privileges to the <literal>eurekastreams</literal> user
 Quit <literal>psql</literal>
 </simpara>
 <screen>\q</screen>
-<orderedlist numeration="arabic">
+</listitem>
+</orderedlist>
+</listitem>
 <listitem>
 <simpara>
 Populate the database
@@ -635,8 +633,6 @@ Populate the database
 <screen>. /opt/eurekastreams/myprefs
 pushd /opt/eurekastreams/web/target/classes/db/scripts
 ./dev_reset_db.sh $dbname $dbuser $baseurl</screen>
-</listitem>
-</orderedlist>
 </listitem>
 </orderedlist>
 </section>
