@@ -6,6 +6,20 @@
 to build and run a development installation of Eureka Streams.
 This procedure is based on the instructions at
 <ulink url="http://www.eurekastreams.org/build-and-run/">http://www.eurekastreams.org/build-and-run/</ulink>.</simpara>
+<blockquote>
+<title>Developer Build Only</title>
+<attribution>
+<citetitle>http://www.eurekastreams.org/build-and-run</citetitle>
+</attribution>
+<simpara>This guide provides the basic information for getting
+Eureka Streams compiled and built in a local environment
+to be run.  The steps provided in this guide are for
+building a developer’s version of Eureka Streams only.
+A number of additional configuration options are available
+for more sophisticated builds for Eureka Streams to run
+in an enterprise environment.  Do not use these build
+commands to build to a production environment.</simpara>
+</blockquote>
 <section id="_install_prerequisite_packages">
 <title>Install prerequisite packages</title>
 <simpara>These steps use <literal>sudo</literal> to run commands as <literal>root</literal>.
