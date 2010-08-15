@@ -6,35 +6,7 @@ to build and run a development installation of Eureka Streams.
 This procedure is based on the instructions at
 http://www.eurekastreams.org/build-and-run/[].
 
-==== Install prerequisite packages
-
-These steps use `sudo` to run commands as `root`.
-You could also run `sudo -i` to become `root`.
-
-. Install `memcached`
-+
-----
-sudo yum -y install memcached
-sudo /sbin/service memcached start
-sudo /sbin/chkconfig memcached on
-----
-
-. Install Git
-+
-----
-sudo yum -y install git-all
-----
-
-. Install Postgres client and server
-+
-----
-sudo yum -y install postgresql postgresql-server
-sudo /sbin/service postgresql initdb
-sudo /sbin/service postgresql start
-sudo /sbin/chkconfig postgresql on
-----
-
-. Install Java from http://www.java.com/en[]
+include::install-prereqs.txt[]
 
 include::install-maven.txt[]
 
