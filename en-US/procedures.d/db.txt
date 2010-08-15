@@ -72,6 +72,7 @@ CREATE DATABASE
 ----
 
 . Create a Postgres user and password
+
 .. At the `psql` prompt (looks like `postgres=#`), list existing users
 +
 ----
@@ -90,7 +91,7 @@ The above command should show output similar to the following for a fresh instal
 .. Create the user as defined in `/opt/eurekastreams/myprefs.sh`
 +
 ----
-CREATE USER eurekastreams WITH PASSWORD 'somepassword';
+CREATE USER eurekastreams WITH PASSWORD 'somepassword' CREATEDB SUPERUSER;
 ----
 +
 Successful account creation is indicated by the following output:

@@ -19,9 +19,21 @@ sudo yum -y install git-all
 ----
 
 . Install Postgres client and server
+.. Install required packages
 +
 ----
 sudo yum -y install postgresql postgresql-server
+----
+
+.. Adjust authentication requirements
++
+----
+sudo sed -i 's/\(^[^#].*\)ident sameuser/\1 trust sameuser/' /var/lib/pgsql/data/pg_hba.conf
+----
+
+.. Start the database
++
+----
 sudo /sbin/service postgresql initdb
 sudo /sbin/service postgresql start
 sudo /sbin/chkconfig postgresql on
