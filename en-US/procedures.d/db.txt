@@ -2,9 +2,33 @@
 ==== Build database
 
 These steps setup a Postgres database for Eureka Streams.
-You should be `root` for the following steps.
+You should be `root` for the following steps unless 
+otherwise stated.
+
+. Create a `eurekastreams` user
++
+----
+username=eurekastreams
+password=somepassword
+useradd -r -m -d /home/$username
+echo $password | passwd --stdin $username
+----
 
 . Confirm Postgres installation
+
+.. Ensure Postgress authentication is correctly set 
+in `/var/lib/pgsql/data/pg_hba.conf`:
++
+----
+# TYPE  DATABASE    USER        CIDR-ADDRESS      METHOD
+
+# "local" is for Unix domain socket connections only
+local   all         all                           ident sameuser
+# IPv4 local connections:
+host    all         all         127.0.0.1/32      ident sameuser
+# IPv6 local connections:
+host    all         all         ::1/128           ident sameuser
+----
 
 .. Ensure Postgres is running
 +
@@ -119,10 +143,31 @@ GRANT
 \q
 ----
 
+. Fix the database scripts
++
+----
+cd /opt/eurekastreams/web/target/classes/db/scripts
+files="dev_reset_db.sh dev_apply_updates.sh"
+for file in $files; do
+  sed -i 's/scripts\$/scripts/g' $file
+done
+----
+
 . Populate the database
+
+.. Become the `eurekastreams` user
++
+----
+su - eurekastreams
+----
+
+.. As the `eurekastreams` user, run the scripts to populate the database
 +
 ----
 . /opt/eurekastreams/myprefs
 pushd /opt/eurekastreams/web/target/classes/db/scripts
 ./dev_reset_db.sh $dbname $dbuser $baseurl
 ----
++
+NOTE: Something is wrong because the Eureka Streams SQL scripts
+puke with a syntax error.
