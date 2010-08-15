@@ -674,7 +674,7 @@ As the <literal>eurekastreams</literal> user, run the scripts to populate the da
 </simpara>
 <screen>. /opt/eurekastreams/myprefs
 pushd /opt/eurekastreams/web/target/classes/db/scripts
-./dev_reset_db.sh $dbname $dbuser $baseurl</screen>
+./dev_reset_db.sh $dbname $dbuser localhost</screen>
 <note><simpara>Something is wrong because the Eureka Streams SQL scripts
 puke with a syntax error.</simpara></note>
 <simpara>The most interesting part of the spew is this snippet:</simpara>
