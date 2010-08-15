@@ -58,5 +58,23 @@ When it does finish, you should see output
 such as:
 +
 ----
-stub output
+[INFO] 
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] ------------------------------------------------------------------------
+[INFO] Eureka Streams Parent ................................. SUCCESS [2:41.986s]
+[INFO] Eureka Streams Server ................................. SUCCESS [8:03.509s]
+[INFO] Eureka Streams Shared Resources ....................... SUCCESS [53.290s]
+[INFO] Eureka Streams Task Queue Processor ................... SUCCESS [1:16.774s]
+[INFO] Eureka Streams Database Resources ..................... SUCCESS [0.579s]
+[INFO] Eureka Streams Web .................................... SUCCESS [6:07.956s]
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 19 minutes 4 seconds
+[INFO] Finished at: Sun Aug 15 11:09:27 EDT 2010
+[INFO] Final Memory: 94M/251M
+[INFO] ------------------------------------------------------------------------
 ----
