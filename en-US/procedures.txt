@@ -5,3 +5,5 @@ include::variables.txt[]
 
 include::procedures.d/build.txt[]
 
+include::procedures.d/production-install.txt[]
+
