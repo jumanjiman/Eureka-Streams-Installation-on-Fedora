@@ -44,7 +44,6 @@ sudo /sbin/chkconfig postgresql on
 
 . Install Java from http://www.java.com/en[]
 
-//include::install-maven.txt[]
 
 ==== Retrieve source code for Eureka Streams
 
