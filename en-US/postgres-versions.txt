@@ -1,6 +1,6 @@
 
 Appendix: Postgres Versions
-===========================
+---------------------------
 
 The Eureka Streams SQL scripts use syntax specific 
 to Postgres 8.4. Attempting to run `dev_reset_db.sh`
