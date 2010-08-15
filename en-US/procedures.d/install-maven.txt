@@ -4,3 +4,137 @@
 These steps install Maven2 using the binary distribution
 from the Apache web site.
 
+. Download Maven2
+.. Open http://maven.apache.org/download.html[] in your browser
+.. Click on the link for the current version of Maven2 to
+see a list of download mirrors
+.. The top of the page suggests a mirror based on your IP
+.. Download the tarball using your browser, `curl`, or `wget`
++
+[source,bash]
+----
+url=http://apache.inetbridge.net/maven/binaries/apache-maven-2.2.1-bin.tar.gz
+wget -P /tmp $url
+----
+
+.. List the contents of the tarball
++
+----
+tar tzf apache-maven-2.2.1-bin.tar.gz
+----
++
+With my download, the tarball contains:
++
+----
+apache-maven-2.2.1/boot/classworlds-1.1.jar
+apache-maven-2.2.1/LICENSE.txt
+apache-maven-2.2.1/NOTICE.txt
+apache-maven-2.2.1/README.txt
+apache-maven-2.2.1/bin/m2.conf
+apache-maven-2.2.1/bin/mvn.bat
+apache-maven-2.2.1/bin/mvnDebug.bat
+apache-maven-2.2.1/bin/mvn
+apache-maven-2.2.1/bin/mvnDebug
+apache-maven-2.2.1/conf/
+apache-maven-2.2.1/conf/settings.xml
+apache-maven-2.2.1/lib/maven-2.2.1-uber.jar
+----
+
+.. Optionally, download the PDF documentation for offline viewing
++
+----
+url=http://maven.apache.org/apache-maven.pdf
+wget -P ~/ $url
+----
+
+. Extract the tarball into `/usr/local`
+.. Become `root`
++
+----
+sudo -i
+----
++
+NOTE: If you have not setup `/etc/sudoers`, use `su -`
+
+.. Extract the tarball
++
+----
+dest=/usr/local
+src=/tmp/apache-maven-2.2.1-bin.tar.gz
+tar xvzf $src -C $dest
+----
+
+. Update the `$PATH` environment variable
+.. As `root`, create `/etc/profile.d/apache-maven.sh`
++
+[source,bash]
+----
+# add extra paths to PATH environment var
+export M2_HOME=/usr/local/apache-maven-2.2.1
+export M2=$M2_HOME/bin
+paths="
+$M2
+"
+for path in ${paths}; do
+  if ! echo ${PATH//:/\\n} | /bin/egrep "^${path}$" ; then
+    PATH=${PATH}:${path}
+  fi
+done
+
+# optionally set maven options
+#MAVEN_OPTS="-Xms256m -Xmx512m"
+----
+
+.. As yourself, source the new path and confirm there are no typos
++
+----
+. /etc/profile.d/apache-maven.sh
+echo $M2_HOME
+echo $M2
+echo $PATH
+which mvn
+----
+
+. Update `$JAVA_HOME`
+.. Determine which Java your system is using
++
+----
+alternatives --config java
+----
++
+This will display something similar to:
++
+----
+There are 4 programs which provide 'java'.
+
+  Selection    Command
+ -----------------------------------------------
+   1           /usr/lib/jvm/jre-1.6.0-openjdk/bin/java
+   2           /usr/lib/jvm/jre-1.5.0-gcj/bin/java
+   3           /usr/java/jre1.6.0_16/bin/java
+*+ 4           /usr/java/latest/bin/java
+
+Enter to keep the current selection[+], or type selection number: 
+----
++
+Press `Enter` to avoid changes.
+
+.. As `root`, create `/etc/profile.d/java-home.sh`
++
+----
+_java=$(readlink /etc/alternatives/java)
+export JAVA_HOME=${_java%%bin*}
+export PATH=$PATH:$JAVA_HOME/bin
+----
+
+.. Source the above file and confirm `JAVA_HOME`
+is correctly set
++
+----
+. /etc/profile.d/java-home.sh
+echo $JAVA_HOME
+----
+
+. Optionally, create `~/.m2/settings.xml` per http://maven.apache.org/settings.html[]
+
+
