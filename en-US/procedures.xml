@@ -522,13 +522,37 @@ such as:</simpara>
 <section id="_build_database">
 <title>Build database</title>
 <simpara>These steps setup a Postgres database for Eureka Streams.
-You should be <literal>root</literal> for the following steps.</simpara>
+You should be <literal>root</literal> for the following steps unless
+otherwise stated.</simpara>
 <orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Create a <literal>eurekastreams</literal> user
+</simpara>
+<screen>username=eurekastreams
+password=somepassword
+useradd -r -m -d /home/$username
+echo $password | passwd --stdin $username</screen>
+</listitem>
 <listitem>
 <simpara>
 Confirm Postgres installation
 </simpara>
 <orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Ensure Postgress authentication is correctly set
+in <literal>/var/lib/pgsql/data/pg_hba.conf</literal>:
+</simpara>
+<screen># TYPE  DATABASE    USER        CIDR-ADDRESS      METHOD
+
+# "local" is for Unix domain socket connections only
+local   all         all                           ident sameuser
+# IPv4 local connections:
+host    all         all         127.0.0.1/32      ident sameuser
+# IPv6 local connections:
+host    all         all         ::1/128           ident sameuser</screen>
+</listitem>
 <listitem>
 <simpara>
 Ensure Postgres is running
@@ -628,11 +652,36 @@ Quit <literal>psql</literal>
 </listitem>
 <listitem>
 <simpara>
+Fix the database scripts
+</simpara>
+<screen>cd /opt/eurekastreams/web/target/classes/db/scripts
+files="dev_reset_db.sh dev_apply_updates.sh"
+for file in $files; do
+  sed -i 's/scripts\$/scripts/g' $file
+done</screen>
+</listitem>
+<listitem>
+<simpara>
 Populate the database
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Become the <literal>eurekastreams</literal> user
+</simpara>
+<screen>su - eurekastreams</screen>
+</listitem>
+<listitem>
+<simpara>
+As the <literal>eurekastreams</literal> user, run the scripts to populate the database
 </simpara>
 <screen>. /opt/eurekastreams/myprefs
 pushd /opt/eurekastreams/web/target/classes/db/scripts
 ./dev_reset_db.sh $dbname $dbuser $baseurl</screen>
+<note><simpara>Something is wrong because the Eureka Streams SQL scripts
+puke with a syntax error.</simpara></note>
+</listitem>
+</orderedlist>
 </listitem>
 </orderedlist>
 </section>
