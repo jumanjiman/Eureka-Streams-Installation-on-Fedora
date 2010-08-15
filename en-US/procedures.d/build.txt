@@ -11,14 +11,6 @@ http://www.eurekastreams.org/build-and-run/[].
 These steps use `sudo` to run commands as `root`.
 You could also run `sudo -i` to become `root`.
 
-////
-. Install `maven2`
-+
-----
-sudo yum -y install maven2 maven2-manual
-----
-////
-
 . Install `memcached`
 +
 ----
@@ -44,6 +36,8 @@ sudo /sbin/chkconfig postgresql on
 
 . Install Java from http://www.java.com/en[]
 
+////
+
 ==== Install and configure Maven
 
 These steps install Maven2 using the binary distribution
@@ -56,7 +50,6 @@ see a list of download mirrors
 .. The top of the page suggests a mirror based on your IP
 .. Download the tarball using your browser, `curl`, or `wget`
 +
-[source,bash]
 ----
 url=http://apache.inetbridge.net/maven/binaries/apache-maven-2.2.1-bin.tar.gz
 wget -P /tmp $url
@@ -112,7 +105,6 @@ tar xvzf $src -C $dest
 . Update the `$PATH` environment variable
 .. As `root`, create `/etc/profile.d/apache-maven.sh`
 +
-[source,bash]
 ----
 # add extra paths to PATH environment var
 export M2_HOME=/usr/local/apache-maven-2.2.1
@@ -182,7 +174,7 @@ echo $JAVA_HOME
 
 . Optionally, create `~/.m2/settings.xml` per http://maven.apache.org/settings.html[]
 
-
+////
 ==== Retrieve source code for Eureka Streams
 
 These steps use `git` to clone the Eureka Streams source code 
@@ -477,5 +469,5 @@ When the above command completes, you should see output
 such as:
 +
 ----
-stub
+stub output
 ----
