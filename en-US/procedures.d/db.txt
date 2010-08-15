@@ -151,6 +151,9 @@ su - eurekastreams
 
 .. As the `eurekastreams` user, run the scripts to populate the database
 +
+IMPORTANT: The SQL scripts use syntax specific to PostgreSQL 8.4.
+See the relevant appendix for details.
++
 ----
 . /opt/eurekastreams/myprefs
 pushd /opt/eurekastreams/web/target/classes/db/scripts
