@@ -4,7 +4,6 @@
 These steps install Maven2 using the binary distribution
 from the Apache web site.
 
-////
 . Download Maven2
 .. Open http://maven.apache.org/download.html[] in your browser
 .. Click on the link for the current version of Maven2 to
@@ -138,5 +137,4 @@ echo $JAVA_HOME
 
 . Optionally, create `~/.m2/settings.xml` per http://maven.apache.org/settings.html[]
 
-////
 
