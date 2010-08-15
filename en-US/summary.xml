@@ -103,6 +103,9 @@ user-defined types and functions).
 <title>Challenges and Risks</title>
 <section id="_dynamic_maven_projects">
 <title>Dynamic Maven projects</title>
+<simpara>Avoid installing Maven from distribution-specific packages.
+These packages provide static versions of Maven and
+its plugins.</simpara>
 <simpara>It is difficult to produce a reliable, reproducible
 build for any project based on Maven. Even though the
 upstream Maven plugins are stable and buildable, the
