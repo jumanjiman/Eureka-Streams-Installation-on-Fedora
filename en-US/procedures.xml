@@ -686,6 +686,8 @@ Become the <literal>eurekastreams</literal> user
 <simpara>
 As the <literal>eurekastreams</literal> user, run the scripts to populate the database
 </simpara>
+<important><simpara>The SQL scripts use syntax specific to PostgreSQL 8.4.
+See the relevant appendix for details.</simpara></important>
 <screen>. /opt/eurekastreams/myprefs
 pushd /opt/eurekastreams/web/target/classes/db/scripts
 ./dev_reset_db.sh $dbname $dbuser localhost</screen>
