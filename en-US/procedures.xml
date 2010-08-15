@@ -249,6 +249,8 @@ Change into the top level directory of the Eureka Streams local repo:
 <simpara>
 Install Shindig
 </simpara>
+<important><simpara>Your development workstation must be able to access the
+Internet for these steps to succeed.</simpara></important>
 <orderedlist numeration="loweralpha">
 <listitem>
 <simpara>
