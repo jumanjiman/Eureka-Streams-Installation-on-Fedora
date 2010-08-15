@@ -29,10 +29,28 @@ Install Git
 <simpara>
 Install Postgres client and server
 </simpara>
-<screen>sudo yum -y install postgresql postgresql-server
-sudo /sbin/service postgresql initdb
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Install required packages
+</simpara>
+<screen>sudo yum -y install postgresql postgresql-server</screen>
+</listitem>
+<listitem>
+<simpara>
+Adjust authentication requirements
+</simpara>
+<screen>sudo sed -i 's/\(^[^#].*\)ident sameuser/\1 trust sameuser/' /var/lib/pgsql/data/pg_hba.conf</screen>
+</listitem>
+<listitem>
+<simpara>
+Start the database
+</simpara>
+<screen>sudo /sbin/service postgresql initdb
 sudo /sbin/service postgresql start
 sudo /sbin/chkconfig postgresql on</screen>
+</listitem>
+</orderedlist>
 </listitem>
 <listitem>
 <simpara>
@@ -591,7 +609,7 @@ At the <literal>psql</literal> prompt (looks like <literal>postgres=#</literal>)
 <simpara>
 Create the user as defined in <literal>/opt/eurekastreams/myprefs.sh</literal>
 </simpara>
-<screen>CREATE USER eurekastreams WITH PASSWORD 'somepassword';</screen>
+<screen>CREATE USER eurekastreams WITH PASSWORD 'somepassword' CREATEDB SUPERUSER;</screen>
 <simpara>Successful account creation is indicated by the following output:</simpara>
 <screen>CREATE ROLE</screen>
 </listitem>
