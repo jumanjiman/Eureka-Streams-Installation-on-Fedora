@@ -696,6 +696,35 @@ pushd /opt/eurekastreams/web/target/classes/db/scripts
 </listitem>
 </orderedlist>
 </section>
+<section id="_run_eureka_streams">
+<title>Run Eureka Streams</title>
+<simpara>These steps use Jetty to run Eureka Streams.</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Change to the project&#8217;s web directory
+</simpara>
+<screen>cd /opt/eurekastreams/web</screen>
+</listitem>
+<listitem>
+<simpara>
+Start Eureka Streams
+</simpara>
+<screen>. /opt/eurekastreams/myprefs.sh
+
+mvn jetty:run -DskipTests         \
+    -Dlog.home=$HOME/logs         \
+    -Denv.WEBPORT=$WEBPORT        \
+    -Denv.GRWEBPORT=$GRWEBPORT</screen>
+</listitem>
+<listitem>
+<simpara>
+Use your favorite web browser to view the site
+as specified in <literal>$baseurl</literal> of <literal>/opt/eurekastreams/myprefs.sh</literal>
+</simpara>
+</listitem>
+</orderedlist>
+</section>
 </section>
 <section id="_build_and_install_an_rpm_for_production_use">
 <title>Build and install an RPM for production use</title>
