@@ -17,6 +17,9 @@ cd /opt/eurekastreams
 ----
 
 . Install Shindig 
++
+IMPORTANT: Your development workstation must be able to access the
+Internet for these steps to succeed.
 
 .. Common components
 +
