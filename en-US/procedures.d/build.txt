@@ -31,3 +31,5 @@ include::compile.txt[]
 
 include::db.txt[]
 
+include::run-jetty.txt[]
+

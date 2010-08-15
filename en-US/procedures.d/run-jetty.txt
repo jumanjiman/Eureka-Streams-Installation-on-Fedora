@@ -1,0 +1,24 @@
+
+==== Run Eureka Streams
+
+These steps use Jetty to run Eureka Streams.
+
+. Change to the project's web directory
++
+----
+cd /opt/eurekastreams/web
+----
+
+. Start Eureka Streams
++
+----
+. /opt/eurekastreams/myprefs.sh
+
+mvn jetty:run -DskipTests         \
+    -Dlog.home=$HOME/logs         \
+    -Denv.WEBPORT=$WEBPORT        \
+    -Denv.GRWEBPORT=$GRWEBPORT
+----
+
+. Use your favorite web browser to view the site
+as specified in `$baseurl` of `/opt/eurekastreams/myprefs.sh`
