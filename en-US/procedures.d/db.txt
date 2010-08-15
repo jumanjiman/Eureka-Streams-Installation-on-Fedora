@@ -160,12 +160,6 @@ pushd /opt/eurekastreams/web/target/classes/db/scripts
 NOTE: Something is wrong because the Eureka Streams SQL scripts
 puke with a syntax error.
 +
-The log output from the above commands spews the following:
-+
-----
-include::eurekastreams20100815-1306.log[]
-----
-+
 The most interesting part of the spew is this snippet:
 +
 ----
@@ -187,4 +181,10 @@ ALTER TABLE systemsettings ALTER COLUMN termsofservice SET DATA TYPE character v
 --
 
 insert into db_version (major, minor, patch, scriptname, description) values (0, 9, '0000', 'U0000VersionBaseline.sql', 'Set baseline to 0.9.0000');
+----
++
+The full spew is shown here:
++
+----
+include::eurekastreams20100815-1306.log[]
 ----
