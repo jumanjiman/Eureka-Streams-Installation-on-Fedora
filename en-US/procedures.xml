@@ -40,7 +40,8 @@ Install required packages
 <simpara>
 Adjust authentication requirements
 </simpara>
-<screen>sudo sed -i 's/\(^[^#].*\)ident sameuser/\1 trust sameuser/' /var/lib/pgsql/data/pg_hba.conf</screen>
+<screen>file=/var/lib/pgsql/data/pg_hba.conf
+sudo sed -i 's/\(^[^#].*\)ident sameuser/\1 trust sameuser/' $file</screen>
 </listitem>
 <listitem>
 <simpara>
