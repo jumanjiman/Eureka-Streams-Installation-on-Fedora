@@ -547,11 +547,11 @@ in <literal>/var/lib/pgsql/data/pg_hba.conf</literal>:
 <screen># TYPE  DATABASE    USER        CIDR-ADDRESS      METHOD
 
 # "local" is for Unix domain socket connections only
-local   all         all                           ident sameuser
+local   all         all                           trust sameuser
 # IPv4 local connections:
-host    all         all         127.0.0.1/32      ident sameuser
+host    all         all         127.0.0.1/32      trust sameuser
 # IPv6 local connections:
-host    all         all         ::1/128           ident sameuser</screen>
+host    all         all         ::1/128           trust sameuser</screen>
 </listitem>
 <listitem>
 <simpara>
