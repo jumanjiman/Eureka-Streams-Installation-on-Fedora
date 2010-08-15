@@ -40,6 +40,7 @@ apache-maven-2.2.1/conf/settings.xml
 apache-maven-2.2.1/lib/maven-2.2.1-uber.jar
 ----
 
+////
 .. Optionally, download the PDF documentation for offline viewing
 +
 ----
@@ -136,4 +137,6 @@ echo $JAVA_HOME
 ----
 
 . Optionally, create `~/.m2/settings.xml` per http://maven.apache.org/settings.html[]
+
+////
 
