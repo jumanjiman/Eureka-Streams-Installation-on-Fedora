@@ -16,3 +16,5 @@ include::maven-deps.txt[]
 
 include::compile.txt[]
 
+include::db.txt[]
+
