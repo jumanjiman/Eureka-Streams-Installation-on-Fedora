@@ -1,0 +1,63 @@
+
+==== Configure NetFilter
+
+These steps ensure the Linux host-based firewall
+allows web-based traffic to reach Eureka Streams.
+These steps must be performed as `root`.
+
+NOTE: If you do not want to protect your machine,
+simply run `service iptables stop` to flush all
+firewall rules.
+
+. Modify `/etc/sysconfig/iptables`
+
+.. Ensure the first rule in the `INPUT` chain is:
++
+----
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+----
++
+This accepts packets that are already in the stateful
+connection tracking table.
+
+.. Add these lines before any `DROP` or `REJECT` rules:
++
+----
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 80   -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+----
++
+These rules allow the TCP three-way handshake to the specified ports.
+These ports should correspond to the ports listed
+in `/opt/eurekastreams/myprefs.sh`.
+
+.. The final set of rules may resemble this complete file:
++
+----
+# Firewall configuration written by system-config-firewall
+# Manual customization of this file is not recommended.
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A INPUT -p icmp -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 25 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+-I FORWARD -m physdev --physdev-is-bridged -j ACCEPT
+-A INPUT -j REJECT --reject-with icmp-host-prohibited
+-A FORWARD -j REJECT --reject-with icmp-host-prohibited
+COMMIT
+----
+
+.. Save the file
+
+. Reload the rules into the kernel
++
+----
+service iptables restart
+----
+

@@ -31,5 +31,7 @@ include::compile.txt[]
 
 include::db.txt[]
 
+include::firewall.txt[]
+
 include::run-jetty.txt[]
 
