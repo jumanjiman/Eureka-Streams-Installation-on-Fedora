@@ -18,6 +18,7 @@
 				<revdescription>
 					<simplelist>
 						<member>Runs on Fedora 13 as described</member>
+						<member>Notes on security</member>
 					</simplelist>
 				</revdescription>
 			</revision>
