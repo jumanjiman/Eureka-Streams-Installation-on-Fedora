@@ -8,7 +8,7 @@ is no sense in obscuring application or build issues with
 strong security. Remember, this initial installation is 'not suitable
 for production use'.
 
-. As root, modify `/etc/sysconfig/selinux` to read:
+. As `root`, modify `/etc/sysconfig/selinux` to read:
 +
 ----
 # This file controls the state of SELinux on the system.
