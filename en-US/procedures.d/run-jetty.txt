@@ -3,6 +3,24 @@
 
 These steps use Jetty to run Eureka Streams.
 
+. Update `/usr/local/apache-maven-*/conf/settings.xml` to include
+the `pluginGroup` for the Jetty plugin:
++
+----
+...
+  <pluginGroups>
+    <!-- pluginGroup
+     | Specifies a further group identifier to use for plugin lookup.
+    <pluginGroup>com.your.plugins</pluginGroup>
+    -->
+    <pluginGroup>org.mortbay.jetty</pluginGroup>
+  </pluginGroups>
+...
+----
++
+In the above example, just add `<pluginGroup>org.mortbay.jetty</pluginGroup>`
+within the existing `pluginGroups` XML tag.
+
 . Change to the project's web directory
 +
 ----
