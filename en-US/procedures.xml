@@ -72,6 +72,13 @@ sudo /sbin/chkconfig postgresql on</screen>
 Install Java from <ulink url="http://www.java.com/en">http://www.java.com/en</ulink>
 </simpara>
 </listitem>
+<listitem>
+<simpara>
+Your web browser needs the Adobe Flash plugin to fully
+use Eureka Streams. See <ulink url="http://fedoraproject.org/wiki/Flash">http://fedoraproject.org/wiki/Flash</ulink>
+for instructions on installing the Flash plugin.
+</simpara>
+</listitem>
 </orderedlist>
 </section>
 <section id="_install_and_configure_maven">
@@ -828,7 +835,8 @@ mvn jetty:run -DskipTests         \
 <listitem>
 <simpara>
 Use your favorite web browser to view the site
-as specified in <literal>$baseurl</literal> of <literal>/opt/eurekastreams/myprefs.sh</literal>
+as specified in <literal>$baseurl</literal> of <literal>/opt/eurekastreams/myprefs.sh</literal>.
+The default username is <literal>sysadmin</literal> with an empty password.
 </simpara>
 </listitem>
 </orderedlist>
