@@ -7,7 +7,7 @@ to Postgres 8.4. Attempting to run `dev_reset_db.sh`
 on Postgres 8.3 results in syntax errors:
 
 ----
-psql:/home/eurekastreams/tmp/2010-08-15-130638.sql:4518: ERROR: syntax error at or near "DATA" LINE 1: ...LE
+psql:/home/eurekastreams/tmp/2010-08-15-130638.sql:4518: ERROR: syntax error at or near "DATA" LINE 1: ...LE systemsettings ALTER COLUMN termsofservice SET DATA TYPE ... ^
 ----
 
 The file `/home/eurekastreams/tmp/2010-08-15-130638.sql`, line 4518, contains an `ALTER TABLE`
@@ -27,8 +27,7 @@ ALTER TABLE systemsettings ALTER COLUMN termsofservice SET DATA TYPE character v
 insert into db_version (major, minor, patch, scriptname, description) values (0, 9, '0000', 'U0000VersionBaseline.sql', 'Set baseline to 0.9.0000');
 ----
 
-The full spew is shown here:
+The full spew is available in `eurekastreams20100815-1306.log` 
+within the Git repo 
+at http://github.com/jumanjiman/Eureka-Streams-Installation-on-Fedora[].
 
-----
-include::eurekastreams20100815-1306.log[]
-----
