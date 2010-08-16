@@ -1,0 +1,34 @@
+
+==== Set SELinux to not enforce security
+
+For now, set SELinux to permissive mode. After Eureka Streams is up and 
+running, we can worry about implementing an SELinux policy
+or otherwise securing the apps. Until it's running, there
+is no sense in obscuring application or build issues with
+strong security. Remember, this initial installation is 'not suitable
+for production use'.
+
+. As root, modify `/etc/sysconfig/selinux` to read:
++
+----
+# This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#   enforcing - SELinux security policy is enforced.
+#   permissive - SELinux prints warnings instead of enforcing.
+#   disabled - SELinux is fully disabled.
+SELINUX=permissive
+# SELINUXTYPE= type of policy in use. Possible values are:
+#   targeted - Only targeted network daemons are protected.
+#   strict - Full SELinux protection.
+SELINUXTYPE=targeted
+----
+
+. As `root`, set permissive mode
++
+----
+setenforce 0
+----
+
+WARNING: SELinux should be enabled and restricted on production servers.
+This step is only for use during initial testing.
+

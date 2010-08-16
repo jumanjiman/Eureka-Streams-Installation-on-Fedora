@@ -19,6 +19,8 @@ in an enterprise environment.  Do not use these build
 commands to build to a production environment.
 ____
 
+include::disable-selinux.txt[]
+
 include::install-prereqs.txt[]
 
 include::install-maven.txt[]
