@@ -3,6 +3,22 @@
 
 These steps use Jetty to run Eureka Streams.
 
+. Ensure nothing is currently bound to the ports specified 
+in `/opt/eurekastreams/myprefs.sh`
+
+.. Use `netstat` to show listeners
++
+----
+. /opt/eurekastreams/myprefs.sh
+netstat -tulpn | egrep ":($WEBPORT|$GRWEBPORT)"
+----
+
+.. If `httpd` is listening on the port, shut it down
++
+----
+service httpd stop
+----
+
 . Update `/usr/local/apache-maven-*/conf/settings.xml` to include
 the `pluginGroup` for the Jetty plugin:
 +
