@@ -42,3 +42,7 @@ sudo /sbin/chkconfig postgresql on
 
 . Install Java from http://www.java.com/en[]
 
+. Your web browser needs the Adobe Flash plugin to fully
+use Eureka Streams. See http://fedoraproject.org/wiki/Flash[]
+for instructions on installing the Flash plugin.
+
