@@ -55,4 +55,5 @@ mvn jetty:run -DskipTests         \
 ----
 
 . Use your favorite web browser to view the site
-as specified in `$baseurl` of `/opt/eurekastreams/myprefs.sh`
+as specified in `$baseurl` of `/opt/eurekastreams/myprefs.sh`.
+The default username is `sysadmin` with an empty password.
