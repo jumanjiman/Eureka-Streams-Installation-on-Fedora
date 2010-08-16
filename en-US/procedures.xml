@@ -696,10 +696,117 @@ pushd /opt/eurekastreams/web/target/classes/db/scripts
 </listitem>
 </orderedlist>
 </section>
+<section id="_configure_netfilter">
+<title>Configure NetFilter</title>
+<simpara>These steps ensure the Linux host-based firewall
+allows web-based traffic to reach Eureka Streams.
+These steps must be performed as <literal>root</literal>.</simpara>
+<note><simpara>If you do not want to protect your machine,
+simply run <literal>service iptables stop</literal> to flush all
+firewall rules.</simpara></note>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Modify <literal>/etc/sysconfig/iptables</literal>
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Ensure the first rule in the <literal>INPUT</literal> chain is:
+</simpara>
+<screen>-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT</screen>
+<simpara>This accepts packets that are already in the stateful
+connection tracking table.</simpara>
+</listitem>
+<listitem>
+<simpara>
+Add these lines before any <literal>DROP</literal> or <literal>REJECT</literal> rules:
+</simpara>
+<screen>-A INPUT -m state --state NEW -m tcp -p tcp --dport 80   -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT</screen>
+<simpara>These rules allow the TCP three-way handshake to the specified ports.
+These ports should correspond to the ports listed
+in <literal>/opt/eurekastreams/myprefs.sh</literal>.</simpara>
+</listitem>
+<listitem>
+<simpara>
+The final set of rules may resemble this complete file:
+</simpara>
+<screen># Firewall configuration written by system-config-firewall
+# Manual customization of this file is not recommended.
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A INPUT -p icmp -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 25 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
+-I FORWARD -m physdev --physdev-is-bridged -j ACCEPT
+-A INPUT -j REJECT --reject-with icmp-host-prohibited
+-A FORWARD -j REJECT --reject-with icmp-host-prohibited
+COMMIT</screen>
+</listitem>
+<listitem>
+<simpara>
+Save the file
+</simpara>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Reload the rules into the kernel
+</simpara>
+<screen>service iptables restart</screen>
+</listitem>
+</orderedlist>
+</section>
 <section id="_run_eureka_streams">
 <title>Run Eureka Streams</title>
 <simpara>These steps use Jetty to run Eureka Streams.</simpara>
 <orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Ensure nothing is currently bound to the ports specified
+in <literal>/opt/eurekastreams/myprefs.sh</literal>
+</simpara>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara>
+Use <literal>netstat</literal> to show listeners
+</simpara>
+<screen>. /opt/eurekastreams/myprefs.sh
+netstat -tulpn | egrep ":($WEBPORT|$GRWEBPORT)"</screen>
+</listitem>
+<listitem>
+<simpara>
+If <literal>httpd</literal> is listening on the port, shut it down
+</simpara>
+<screen>service httpd stop</screen>
+</listitem>
+</orderedlist>
+</listitem>
+<listitem>
+<simpara>
+Update <literal>/usr/local/apache-maven-*/conf/settings.xml</literal> to include
+the <literal>pluginGroup</literal> for the Jetty plugin:
+</simpara>
+<screen>...
+  &lt;pluginGroups&gt;
+    &lt;!-- pluginGroup
+     | Specifies a further group identifier to use for plugin lookup.
+    &lt;pluginGroup&gt;com.your.plugins&lt;/pluginGroup&gt;
+    --&gt;
+    &lt;pluginGroup&gt;org.mortbay.jetty&lt;/pluginGroup&gt;
+  &lt;/pluginGroups&gt;
+...</screen>
+<simpara>In the above example, just add <literal>&lt;pluginGroup&gt;org.mortbay.jetty&lt;/pluginGroup&gt;</literal>
+within the existing <literal>pluginGroups</literal> XML tag.</simpara>
+</listitem>
 <listitem>
 <simpara>
 Change to the project&#8217;s web directory
