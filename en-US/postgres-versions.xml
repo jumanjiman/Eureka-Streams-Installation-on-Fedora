@@ -1,5 +1,5 @@
-<appendix id="_postgres_versions">
-<title>Postgres Versions</title>
+<chapter id="_appendix_postgres_versions">
+<title>Appendix: Postgres Versions</title>
 <simpara>The Eureka Streams SQL scripts use syntax specific
 to Postgres 8.4. Attempting to run <literal>dev_reset_db.sh</literal>
 on Postgres 8.3 results in syntax errors:</simpara>
@@ -20,4 +20,4 @@ insert into db_version (major, minor, patch, scriptname, description) values (0,
 <simpara>The full spew is available in <literal>eurekastreams20100815-1306.log</literal>
 within the Git repo
 at <ulink url="http://github.com/jumanjiman/Eureka-Streams-Installation-on-Fedora">http://github.com/jumanjiman/Eureka-Streams-Installation-on-Fedora</ulink>.</simpara>
-</appendix>
+</chapter>

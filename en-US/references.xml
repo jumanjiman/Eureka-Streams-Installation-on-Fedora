@@ -1,5 +1,5 @@
-<appendix id="_reference_material">
-<title>Reference Material</title>
+<chapter id="_appendix_reference_material">
+<title>Appendix: Reference Material</title>
 <section id="_eureka_streams">
 <title>Eureka Streams</title>
 <variablelist>
@@ -149,4 +149,4 @@ PDF version of this document
 </listitem>
 </itemizedlist>
 </section>
-</appendix>
+</chapter>

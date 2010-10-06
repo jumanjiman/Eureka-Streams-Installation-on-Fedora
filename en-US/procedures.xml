@@ -31,7 +31,7 @@ for production use</emphasis>.</simpara>
 <orderedlist numeration="arabic">
 <listitem>
 <simpara>
-As root, modify <literal>/etc/sysconfig/selinux</literal> to read:
+As <literal>root</literal>, modify <literal>/etc/sysconfig/selinux</literal> to read:
 </simpara>
 <screen># This file controls the state of SELinux on the system.
 # SELINUX= can take one of these three values:
@@ -145,8 +145,8 @@ The top of the page suggests a mirror based on your IP
 <simpara>
 Download the tarball using your browser, <literal>curl</literal>, or <literal>wget</literal>
 </simpara>
-<screen>url=http://apache.inetbridge.net/maven/binaries/apache-maven-2.2.1-bin.tar.gz
-wget -P /tmp $url</screen>
+<programlisting language="Bash" linenumbering="unnumbered">url=http://apache.inetbridge.net/maven/binaries/apache-maven-2.2.1-bin.tar.gz
+wget -P /tmp $url</programlisting>
 </listitem>
 <listitem>
 <simpara>
@@ -207,7 +207,7 @@ Update the <literal>$PATH</literal> environment variable
 <simpara>
 As <literal>root</literal>, create <literal>/etc/profile.d/apache-maven.sh</literal>
 </simpara>
-<screen># add extra paths to PATH environment var
+<programlisting language="Bash" linenumbering="unnumbered"># add extra paths to PATH environment var
 export M2_HOME=/usr/local/apache-maven-2.2.1
 export M2=$M2_HOME/bin
 paths="
@@ -220,7 +220,7 @@ for path in ${paths}; do
 done
 
 # optionally set maven options
-#MAVEN_OPTS="-Xms256m -Xmx512m"</screen>
+#MAVEN_OPTS="-Xms256m -Xmx512m"</programlisting>
 </listitem>
 <listitem>
 <simpara>

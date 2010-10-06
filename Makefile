@@ -8,11 +8,11 @@ asciidoc: clean
 	@echo
 	@echo converting asciidoc into docbook
 	@# convert one chapter at a time
-	@asciidoc -s -d book -b docbook -f /etc/asciidoc/redhatgps.conf $(XML_LANG)/summary.txt
-	@asciidoc -s -d book -b docbook -f /etc/asciidoc/redhatgps.conf $(XML_LANG)/procedures.txt
-	@asciidoc -s -d book -b docbook -f /etc/asciidoc/redhatgps.conf $(XML_LANG)/technical.txt
-	@asciidoc -s -d book -b docbook -f /etc/asciidoc/redhatgps.conf $(XML_LANG)/references.txt
-	@asciidoc -s -d book -b docbook -f /etc/asciidoc/redhatgps.conf $(XML_LANG)/postgres-versions.txt
+	@asciidoc -s -d book -b docbook $(XML_LANG)/summary.txt
+	@asciidoc -s -d book -b docbook $(XML_LANG)/procedures.txt
+	@asciidoc -s -d book -b docbook $(XML_LANG)/technical.txt
+	@asciidoc -s -d book -b docbook $(XML_LANG)/references.txt
+	@asciidoc -s -d book -b docbook $(XML_LANG)/postgres-versions.txt
 
 pdf: asciidoc
 	@echo
